@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import MouseTracker from './MouseTracker';
 import './App.css';
 
+const App = () =>
+(
+  <div>
+    <MouseTracker />    
+  </div>
+);
+
+/*
 class App extends Component {
   render() {
     return (
@@ -24,5 +33,5 @@ class App extends Component {
     );
   }
 }
-
+*/
 export default App;
