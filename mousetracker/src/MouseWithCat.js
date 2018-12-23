@@ -25,7 +25,8 @@ class MouseWithCat extends React.Component {
             component every time we need to use it, so <MouseWithCat>
             isn't really reusable yet.
           */}
-          <Cat mouse={this.state} />
+          {/*<Cat mouse={this.state} /> */}
+          {this.props.render(this.state)};
         </div>
       );
     }

@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import Mouse from './Mouse';
-import MouseWithCat from './MouseWithCat';
-
+import Cat from './Cat';
 const MouseTracker = () =>(
     <div>
-        <MouseWithCat />
-    </div>   
+        <h1>Move the mouse around!</h1>
+        <Mouse render={mouse => (
+          <Cat mouse={mouse} />
+        )}/>
+      </div>         
 );
+
 /*
 class MouseTracker extends React.Component {
     constructor(props) {
