@@ -4,10 +4,11 @@ import Cat from './Cat';
 const MouseTracker = () =>(
     <div>
         <h1>Move the mouse around!</h1>
-        <Mouse render={mouse => (
-          <Cat mouse={mouse} />
+        <Mouse renderTheHeading={mouse => (
+            <Cat mouse={mouse} 
+            renderTheDog/>
         )}/>
-      </div>         
+    </div>     
 );
 
 /*
