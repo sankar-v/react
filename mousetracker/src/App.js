@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import MouseTracker from './MouseTracker';
 import './App.css';
+import {List, ListItem, HeaderListItem} from './ListItem';
 
 const App = () =>
 (
   <div>
-    <MouseTracker />    
+    <MouseTracker />
   </div>
 );
 

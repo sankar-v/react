@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
-import Mouse from './Mouse';
-import MouseWithCat from './MouseWithCat';
+import Cat from './Cat'
 
-const MouseTracker = () =>(
-    <div>
-        <MouseWithCat />
-    </div>   
-);
-/*
-class MouseTracker extends React.Component {
+class MouseWithCat extends React.Component {
     constructor(props) {
       super(props);
       this.handleMouseMove = this.handleMouseMove.bind(this);
@@ -25,12 +18,17 @@ class MouseTracker extends React.Component {
     render() {
       return (
         <div style={{ height: '100%' }} onMouseMove={this.handleMouseMove}>
-          <h1>Move the mouse around!</h1>
-          <p>The current mouse position is ({this.state.x}, {this.state.y})</p>
+  
+          {/*
+            We could just swap out the <p> for a <Cat> here ... but then
+            we would need to create a separate <MouseWithSomethingElse>
+            component every time we need to use it, so <MouseWithCat>
+            isn't really reusable yet.
+          */}
+          <Cat mouse={this.state} />
         </div>
       );
     }
-  }
-*/
-
-export default MouseTracker;
+}
+  
+export default MouseWithCat;
