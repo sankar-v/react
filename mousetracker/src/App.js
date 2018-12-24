@@ -7,7 +7,7 @@ import {List, ListItem, HeaderListItem} from './ListItem';
 const App = () =>
 (
   <div>
-    <MouseTracker />
+    <MouseTracker  />
   </div>
 );
 
