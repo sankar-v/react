@@ -13,46 +13,17 @@ const App = () =>
   </div>
 );
 */
-//Lifting state from Amount to App to display the Euro and Pound signs..
-/*
-const App = () =>
+//Restoring state to Amount component and reverting back to stateless compoent for App
+
+const App = ({amount}) =>
 (
   <div>
-    <Amount />    
+    <Amount>
+      <Pound amount={amount} />
+      <Euro amount={amount} />
+    </Amount>    
   </div>
 )
-*/
-
-class App extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = { 
-      amount : 0,
-    };
-  }
-
-  onIncrement = () =>{
-      this.setState(state => ({amount : state.amount + 1 }));
-  }
-
-  onDecrement = () => {
-      this.setState(state => ({amount : state.amount - 1}));
-  }
-
-  render(){
-    return(
-        <div>
-        <Amount 
-          amount = {this.state.amount}
-          onIncrement = {this.onIncrement}
-          onDecrement = {this.onDecrement}
-        />
-        <Euro amount={this.state.amount}/>
-        <Pound amount={this.state.amount}/>
-      </div>
-    );
-  }
-}
 
 /*
 class App extends Component {

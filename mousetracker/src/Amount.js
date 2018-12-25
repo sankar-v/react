@@ -4,6 +4,7 @@ import React from 'react';
 const Euro = ({amount}) => <p>Euro: {amount * 0.86}</p>;
 const Pound = ({amount}) => <p>Pound: {amount * 0.76}</p>;
 
+/*
 const Amount = ({amount, onIncrement, onDecrement}) =>
 (
     <div>
@@ -17,20 +18,28 @@ const Amount = ({amount, onIncrement, onDecrement}) =>
     </button>
   </div>
 );
+*/
 
-/*
 class Amount extends React.Component{
     constructor(props){
         super(props);
-        this.onDecrement = this.props.onDecrement;
-        this.onIncrement = this.props.onIncrement;
-        this.amount = this.props.amount;
+        this.state = {
+            amount: 0,
+        };
+    }
+
+    onIncrement = () =>{
+        this.setState(state => ({amount : state.amount + 1 }));
+    }
+  
+    onDecrement = () => {
+        this.setState(state => ({amount : state.amount - 1}));
     }
 
     render(){
         return(
             <div>
-            <span>US Dollar: {this.amount} </span>
+            <span>US Dollar: {this.state.amount} </span>
     
             <button type="button" onClick={this.onIncrement}>
               +
@@ -38,9 +47,10 @@ class Amount extends React.Component{
             <button type="button" onClick={this.onDecrement}>
               -
             </button>
+            {this.props.children}
           </div>
         );
     }
 }
-*/
+
 export {Euro, Pound, Amount};
