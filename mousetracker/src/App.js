@@ -14,16 +14,21 @@ const App = () =>
 );
 */
 //Restoring state to Amount component and reverting back to stateless compoent for App
-
-const App = ({amount}) =>
+//with this pattern amount can be passed to children component using Amount and need not be 
+//set at App level
+const App = () =>
 (
-  <div>
-    <Amount>
+  <Amount>
+  {
+    amount =>(
+    <div>
       <Pound amount={amount} />
       <Euro amount={amount} />
-    </Amount>    
-  </div>
-)
+    </div> 
+  )
+  }
+  </Amount>
+);
 
 /*
 class App extends Component {

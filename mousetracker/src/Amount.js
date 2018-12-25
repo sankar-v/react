@@ -47,7 +47,7 @@ class Amount extends React.Component{
             <button type="button" onClick={this.onDecrement}>
               -
             </button>
-            {this.props.children}
+            {this.props.children(this.state.amount)}
           </div>
         );
     }
