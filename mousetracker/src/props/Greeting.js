@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 
-const Greeting = ({greetings}) =>
+const Greeting = props =>
 (
     <div>
-        <h1>{greetings}</h1>
+        <h1>{props.greetings}</h1>
     </div>    
 )
 
