@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 const Greeting = props =>
 (
     <div>
-        <h1>{props.greetings}</h1>
+        <h1>{props.greeting1}! {props.greeting2} !! {props.greeting3}</h1>
     </div>    
 )
 

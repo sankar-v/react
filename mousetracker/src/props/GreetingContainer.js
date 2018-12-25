@@ -4,7 +4,7 @@ import Greeting from './Greeting';
 const GreetingContainer = () =>
 (
     <div>
-        <Greeting greetings="hello world"/>
+        <Greeting greeting1="hello world" greeting2 ="how are you" greeting3=" and how do you do"/>
     </div>
 );
 
