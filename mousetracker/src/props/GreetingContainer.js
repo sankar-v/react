@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
+import Greeting from './Greeting';
 
 const GreetingContainer = () =>
 (
     <div>
-        Greetings!!
+        <Greeting greetings="hello world"/>
     </div>
 );
 
