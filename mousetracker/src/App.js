@@ -5,13 +5,25 @@ import './App.css';
 import {List, ListItem, HeaderListItem} from './ListItem';
 import {Amount, Euro, Pound} from './Amount';
 import PictureContainer from './PictureContainer';
+import GreetingContainer from './props/GreetingContainer';
 
+
+const App = () =>
+(
+  <div>
+    <GreetingContainer  />
+  </div>
+);
+
+
+/*
 const App = () =>
 (
   <div>
     <PictureContainer  />
   </div>
 );
+*/
 
 /*
 const App = () =>
