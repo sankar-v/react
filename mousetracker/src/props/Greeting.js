@@ -4,6 +4,7 @@ const Greeting = props =>
 (
     <div>
         <h1>{props.greeting1}! {props.greeting2} !! {props.greeting3}</h1>
+        <h2>{props.children}</h2>
     </div>    
 )
 
