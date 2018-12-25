@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Greeting from './Greeting';
 
+//https://www.robinwieruch.de/react-pass-props-to-component/
 class GreetingContainer extends React.Component{
     constructor(props){
         super(props);
