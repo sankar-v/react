@@ -7,23 +7,15 @@ const Pound = (amount) => <p>Pound: {amount * 0.76}</p>;
 class Amount extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            amount:0,
-        };
-    }
-
-    onIncrement = () =>{
-        this.setState(state => ({amount : state.amount + 1 }));
-    }
-
-    onDecrement = () => {
-        this.setState(state => ({amount : state.amount - 1}));
+        this.onDecrement = this.props.onDecrement;
+        this.onIncrement = this.props.onIncrement;
+        this.amount = this.props.amount;
     }
 
     render(){
         return(
             <div>
-            <span>US Dollar: {this.state.amount} </span>
+            <span>US Dollar: {this.amount} </span>
     
             <button type="button" onClick={this.onIncrement}>
               +

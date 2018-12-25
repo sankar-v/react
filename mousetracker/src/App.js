@@ -3,24 +3,56 @@ import logo from './logo.svg';
 import MouseTracker from './MouseTracker';
 import './App.css';
 import {List, ListItem, HeaderListItem} from './ListItem';
-import Amount from './Amount';
+import {Amount, Euro, Pound} from './Amount';
 
-
+/*
 const App = () =>
 (
   <div>
     <MouseTracker  />
   </div>
 );
-
+*/
+//Lifting state from Amount to App to display the Euro and Pound signs..
 /*
 const App = () =>
 (
   <div>
-    Currency Converter
+    <Amount />    
   </div>
 )
 */
+
+class App extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = { 
+      amount : 0,
+    };
+  }
+
+  onIncrement = () =>{
+      this.setState(state => ({amount : state.amount + 1 }));
+  }
+
+  onDecrement = () => {
+      this.setState(state => ({amount : state.amount - 1}));
+  }
+
+  render(){
+    return(
+        <div>
+        <Amount 
+          amount = {this.state.amount}
+          onIncrement = {this.onIncrement}
+          onDecrement = {this.onDecrement}
+        />
+        <Euro amount={this.state.amount}/>
+        <Pound amount={this.state.amount}/>
+      </div>
+    );
+  }
+}
 
 /*
 class App extends Component {
