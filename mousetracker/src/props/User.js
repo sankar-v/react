@@ -21,3 +21,5 @@ const Profile = ({user, children}) =>(
 const AvatarRound = ({ user }) => (
     <img className="round" alt="avatar" src={user.avatarUrl} />
 )
+
+export default {User, Profile, AvatarRound};
