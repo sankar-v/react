@@ -4,6 +4,14 @@ import MouseTracker from './MouseTracker';
 import './App.css';
 import {List, ListItem, HeaderListItem} from './ListItem';
 import {Amount, Euro, Pound} from './Amount';
+import PictureContainer from './PictureContainer';
+
+const App = () =>
+(
+  <div>
+    <PictureContainer  />
+  </div>
+);
 
 /*
 const App = () =>
@@ -16,6 +24,7 @@ const App = () =>
 //Restoring state to Amount component and reverting back to stateless compoent for App
 //with this pattern amount can be passed to children component using Amount and need not be 
 //set at App level
+/*
 const App = () =>
 (
   <Amount>
@@ -29,6 +38,7 @@ const App = () =>
   }
   </Amount>
 );
+*/
 
 /*
 class App extends Component {
