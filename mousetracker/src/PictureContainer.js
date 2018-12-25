@@ -26,17 +26,41 @@ class PictureContainer extends Component{
         return (
             <div>
               <div className='squares'>
-                {this.state.pictures.map((picture) => {
-                  return (
-                    <Picture key={picture.id} src={picture.src}>
-                      <Button
-                        pictureSrc={picture.src}
-                        setCurrentPic={this.setCurrentPic}
-                        id={picture.id}
-                      />
-                    </Picture>
+                {
+                  this.state.pictures.map(
+                    (picture) => 
+                    {
+                      return (
+                        <div>
+                        <Picture key={picture.id} src={picture.src}>
+                          <Button
+                            pictureSrc={picture.src}
+                            setCurrentPic={this.setCurrentPic}
+                            id={picture.id}
+                          />
+                           <Button
+                             pictureSrc={picture.src}
+                             setCurrentPic={this.setCurrentPic}
+                             id={picture.id}
+                           />
+                        </Picture>
+                        <Picture key={picture.id} src={picture.src}>
+                          <Button
+                            pictureSrc={picture.src}
+                            setCurrentPic={this.setCurrentPic}
+                            id={picture.id}
+                          />
+                           <Button
+                             pictureSrc={picture.src}
+                             setCurrentPic={this.setCurrentPic}
+                             id={picture.id}
+                           />
+                        </Picture>
+                        </div>
+                      )
+                    }
                   )
-                })}
+                }
               </div>
               <div>
                 <p>Current selected picture ID is {this.state.currentPic}</p>
