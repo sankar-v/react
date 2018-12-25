@@ -3,9 +3,12 @@ import Mouse from './Mouse';
 import Cat from './Cat';
 import Tooltip from  './Tooltip';
 
+
+//Be careful when using Render Props with React.PureComponent
 const MouseTracker = () =>(
     <div>
         <h1>Move the mouse around!</h1>
+        {/*
         <Mouse 
             renderTheHeading={
                 mouse => (<Cat mouse={mouse} />) 
@@ -14,6 +17,15 @@ const MouseTracker = () =>(
                 (mouse) =>(<Tooltip mouse= {mouse} />)
             }
         />
+        */}
+        {/*uses the children Property directly*/ }
+        <Mouse> 
+        {mouse=>
+          (
+              <p>The mouse position is {mouse.x}, {mouse.y}</p>
+          )
+        }      
+        </Mouse>
     </div>     
 );
 /*

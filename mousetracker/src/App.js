@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import MouseTracker from './MouseTracker';
 import './App.css';
 import {List, ListItem, HeaderListItem} from './ListItem';
+import Amount from './Amount';
+
 
 const App = () =>
 (
@@ -10,6 +12,15 @@ const App = () =>
     <MouseTracker  />
   </div>
 );
+
+/*
+const App = () =>
+(
+  <div>
+    Currency Converter
+  </div>
+)
+*/
 
 /*
 class App extends Component {
