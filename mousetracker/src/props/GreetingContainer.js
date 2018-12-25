@@ -1,6 +1,33 @@
 import React, {Component} from 'react';
 import Greeting from './Greeting';
 
+class GreetingContainer extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            isShow: true,
+        };
+    }
+
+    toggleShow = () =>{
+        this.setState(state => ({isShow : !state.isShow}));
+    }
+
+    render(){
+        const greeting = 'Welcome to React';
+
+        return(
+            <div>
+                <Greeting greeting={greeting} isShow={this.state.isShow} />
+                <button onClick={this.toggleShow} type='button'>
+                    Toggle Show
+                </button>
+            </div>
+        )
+    }
+
+}
+/*
 const GreetingContainer = () =>
 (
     <div>
@@ -10,5 +37,7 @@ const GreetingContainer = () =>
         </Greeting>
     </div>
 );
+*/
+
 
 export default GreetingContainer;

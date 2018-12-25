@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
 
-const Greeting = props =>
+const Greeting = ({greeting, isShow}) =>
 (
-    <div>
-        <h1>{props.greeting1}! {props.greeting2} !! {props.greeting3}</h1>
-        <h2>{props.children}</h2>
-    </div>    
+    isShow ? <h1>{greeting}</h1> : null
 )
 
 /*
