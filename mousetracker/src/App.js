@@ -7,9 +7,14 @@ import {Amount, Euro, Pound} from './renderprops/Amount';
 import PictureContainer from './props/PictureContainer';
 import GreetingContainer from './props/GreetingContainer';
 import Fetch from './renderprops/Fetch';
+import PhotoContainer from './constants/PhotoComponent';
 
+//PhotoContainer
+const App = () =>(
+  <PhotoContainer />
+);
+/*
 //https://dev.to/kayis/render-props-and-higher-oder-components-5628
-
 const App = () =>
 (
   <Fetch url="https://api.github.com/users/defunkt">
@@ -18,6 +23,7 @@ const App = () =>
   }
   </Fetch>
 );
+*/
 
 /*
 const App = () =>
