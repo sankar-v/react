@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Mouse from './Mouse';
 import Cat from './Cat';
-import Tooltip from  './Tooltip';
-
+import Tooltip from  '../boxes/Tooltip';
 
 //Be careful when using Render Props with React.PureComponent
 const MouseTracker = () =>(
