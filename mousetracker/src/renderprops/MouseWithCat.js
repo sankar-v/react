@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Cat from './Cat'
 
+//https://medium.com/ingenious/a-tale-of-higher-order-components-render-props-a1ba47e8cfeb
+
 class MouseWithCat extends React.Component {
     constructor(props) {
       super(props);

@@ -9,7 +9,13 @@ import GreetingContainer from './props/GreetingContainer';
 import Fetch from './renderprops/Fetch';
 import PhotoContainer from './constants/PhotoComponent';
 import MouseMixin from './mixins/MouseMixin';
+import Home from './renderprops/Home';
 
+//https://codepen.io/rkotze/pen/oqqopQ
+const App = () =>(
+  <Home />
+)
+/*
 var createReactClass = require('create-react-class');
 const App = createReactClass({
   // Use the mixin!
@@ -26,6 +32,7 @@ const App = createReactClass({
   }
 })
 
+*/
 /*
 //PhotoContainer
 const App = () =>(
