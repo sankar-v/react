@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+//https://www.richardkotze.com/coding/hoc-vs-render-props-react
+
 const wrapWithFetch = Wrapped =>
     class Fetch extends React.Component{
         state = { result :null};
