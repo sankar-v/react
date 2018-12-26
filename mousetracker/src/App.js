@@ -1,20 +1,32 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import MouseTracker from './MouseTracker';
+import MouseTracker from './renderprops/MouseTracker';
 import './App.css';
-import {List, ListItem, HeaderListItem} from './ListItem';
-import {Amount, Euro, Pound} from './Amount';
-import PictureContainer from './PictureContainer';
+import {List, ListItem, HeaderListItem} from './renderprops/ListItem';
+import {Amount, Euro, Pound} from './renderprops/Amount';
+import PictureContainer from './props/PictureContainer';
 import GreetingContainer from './props/GreetingContainer';
+import Fetch from './renderprops/Fetch';
 
+//https://dev.to/kayis/render-props-and-higher-oder-components-5628
 
+const App = () =>
+(
+  <Fetch url="https://api.github.com/users/defunkt">
+  {
+    user => <p>{user.login}</p>
+  }
+  </Fetch>
+);
+
+/*
 const App = () =>
 (
   <div>
     <GreetingContainer  />
   </div>
 );
-
+*/
 
 /*
 const App = () =>
