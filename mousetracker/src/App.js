@@ -8,11 +8,30 @@ import PictureContainer from './props/PictureContainer';
 import GreetingContainer from './props/GreetingContainer';
 import Fetch from './renderprops/Fetch';
 import PhotoContainer from './constants/PhotoComponent';
+import MouseMixin from './mixins/MouseMixin';
 
+const App = React.createClass({
+  // Use the mixin!
+  mixins: [ MouseMixin ],
+  
+  render() {
+    const { x, y } = this.state
+
+    return (
+      <div style={{ height: '100%' }} onMouseMove={this.handleMouseMove}>
+        <h1>The mouse position is ({x}, {y})</h1>
+      </div>
+    )
+  }
+})
+
+/*
 //PhotoContainer
 const App = () =>(
   <PhotoContainer />
 );
+*/
+
 /*
 //https://dev.to/kayis/render-props-and-higher-oder-components-5628
 const App = () =>
