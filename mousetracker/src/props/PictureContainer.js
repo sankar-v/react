@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import Picture from './Picture';
-import Button from './Button';
+import Button from '../renderprops/Button';
 
 //https://codeburst.io/a-quick-intro-to-reacts-props-children-cb3d2fce4891
 
