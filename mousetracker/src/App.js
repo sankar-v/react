@@ -10,7 +10,8 @@ import Fetch from './renderprops/Fetch';
 import PhotoContainer from './constants/PhotoComponent';
 import MouseMixin from './mixins/MouseMixin';
 
-const App = React.createClass({
+var createReactClass = require('create-react-class');
+const App = createReactClass({
   // Use the mixin!
   mixins: [ MouseMixin ],
   

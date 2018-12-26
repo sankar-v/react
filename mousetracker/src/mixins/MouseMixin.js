@@ -37,7 +37,26 @@ const Component = createReactClass({
       this.someMethod(num)
     }
 });
-  
+
+/*
+class App extends React.Component {  
+  constructor(props) {
+    super(props)
+    this.callChildMethod = this.callChildMethod.bind(this)
+  }
+  callChildMethod() {
+    this.refs.composer.someStaticMethod(5)
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={this.callChildMethod}></button>
+        <Composer ref="composer" />
+      </div>
+    )
+  }
+*/
+
 //simple javascript object - nothing react
 const MouseMixin = {
     getInitialState(){
