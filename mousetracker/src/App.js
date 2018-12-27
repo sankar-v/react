@@ -10,11 +10,19 @@ import Fetch from './renderprops/Fetch';
 import PhotoContainer from './constants/PhotoComponent';
 import MouseMixin from './mixins/MouseMixin';
 import Home from './renderprops/Home';
+import Timeline from './fullstackreact/Timeline';
 
+const App = () => (
+  <Timeline />
+)
+
+/*
 //https://codepen.io/rkotze/pen/oqqopQ
 const App = () =>(
   <Home />
 )
+*/
+
 /*
 var createReactClass = require('create-react-class');
 const App = createReactClass({
