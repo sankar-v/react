@@ -1,5 +1,5 @@
 import React from 'react';
-import './timelines.css';
+import '../styles/Timeline.css';
 
 class Timeline extends React.Component {
 
