@@ -71,9 +71,9 @@ class AppContainer1 extends React.Component{
             <div>
             {
             activities.map((a) => {
-               return(
-               <div> 
-                   <Content activity = {a}/>
+            return(
+              <div> 
+                <Content activity = {a}/>
                 </div>
                )
             })

@@ -1,34 +1,18 @@
 import React from 'react';
+import ActivityItem from './ActivityItem';
 
 class Content extends React.Component {
 
     render() {
-        const {activity} = this.props;//ES6 destructuring
+        const activity = this.props.activity;
         return (
-        <div className="content">
-          <div className="line"></div>
-  
-          <div className="item">
-          <div className="avatar">
-            <img
-              alt={activity.text}
-              src={activity.user.avatar} />
-            {activity.user.name}
-          </div>
-
-          <span className="time">
-            {activity.timestamp}
-          </span>
-          <p>{activity.text}</p>
-          <div className="commentCount">
-            {activity.comments.length}
-          </div>
-          </div>
-  
-          {/* ... */}
-  
-        </div>
-      )
+            <div className="content">
+              <div className="line">
+                {<ActivityItem item = {activity}/>}
+              </div>
+              {/* ... */}
+            </div>
+          )
     }
   }
 
