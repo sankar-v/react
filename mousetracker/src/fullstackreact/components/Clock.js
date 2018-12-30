@@ -11,18 +11,13 @@ const aFunction = (message) => {
 class Clock extends React.Component {
     constructor(props){
         super(props);
-        this.state = this.getTime();
-        
-        setInterval(()=> {
-            const {hours, minutes, seconds, ampm} = this.getTime();
-            this.setState((state)=> ({
-                hours:hours, 
-                minutes:minutes, 
-                seconds: seconds, 
-                ampm: ampm}));              
-        }, 1000);
+        this.state = this.getTime();        
     }
    
+    componentDidMount(){
+        this.setTimer();
+    }
+
     getTime(){
         const initialTime = new Date(),
             hours = initialTime.getHours(),
@@ -43,14 +38,7 @@ class Clock extends React.Component {
     }
 
     updateClock(){
-        const currentTime = new Date();
-        this.setState({
-            currentTime : currentTime
-        }, this.setTimer);
-    }
-
-    componentDidMount(){
-        this.setTimer();
+        this.setState(this.getTime, this.setTimer);
     }
 
     render(){
