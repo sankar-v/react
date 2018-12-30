@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Content from './Content';
+import Clock from './Clock';
 
 const activity = {
         timestamp: new Date().getTime(),
@@ -54,12 +55,14 @@ const activities = [
       },
 ];
 
+
 const AppContainer =() => (
     <div>
         <Header title="Timeline" />
-        <Content activity = {activity}/>
+        <Content activity = {activity}/>       
     </div>
 )
+
 
 class AppContainer1 extends React.Component{
     constructor(props){
@@ -72,12 +75,14 @@ class AppContainer1 extends React.Component{
             {
             activities.map((a) => {
             return(
-              <div> 
-                <Content activity = {a}/>
+                <div>
+                <Content activity = {a}/>                
+                <Clock/>
                 </div>
-               )
+            )
             })
             }
+            
             </div>
         )
     };

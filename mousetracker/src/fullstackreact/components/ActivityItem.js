@@ -11,8 +11,8 @@ class ActivityItem extends React.Component {
         return(
         <div>
             <div className="avatar">
-                <img alt={activity.text} src={user.avatar} />
-                {user.name}
+                <img alt={activity.text} src={activity.user.avatar} />
+                {activity.user.name}
             </div>
             <span className="time">
                 {activity.timestamp}

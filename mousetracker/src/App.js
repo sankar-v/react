@@ -10,12 +10,13 @@ import Fetch from './renderprops/Fetch';
 import PhotoContainer from './constants/PhotoComponent';
 import MouseMixin from './mixins/MouseMixin';
 import Home from './renderprops/Home';
-
+import AppContainer1 from './fullstackreact/components/AppContainer';
 import AppContainer from './fullstackreact/components/AppContainer';
+
 //import './fullstackreact/styles/Timeline.css';
 
 const App = () => (
-  <AppContainer/>
+  <AppContainer1/>
 )
 
 /*
