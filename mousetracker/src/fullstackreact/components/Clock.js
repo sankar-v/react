@@ -12,13 +12,14 @@ class Clock extends React.Component {
     constructor(props){
         super(props);
         this.state = this.getTime();
+        
         setInterval(()=> {
             const {hours, minutes, seconds, ampm} = this.getTime();
             this.setState((state)=> ({
                 hours:hours, 
                 minutes:minutes, 
                 seconds: seconds, 
-                ampm: ampm}));                       
+                ampm: ampm}));              
         }, 1000);
     }
    
@@ -36,8 +37,20 @@ class Clock extends React.Component {
             };
     }
 
+    setTimer(){
+        clearTimeout(this.timeout);
+        this.timeout = setTimeout(this.updateClock.bind(this),1000);
+    }
+
+    updateClock(){
+        const currentTime = new Date();
+        this.setState({
+            currentTime : currentTime
+        }, this.setTimer);
+    }
+
     componentDidMount(){
-        this.state = { time: null };
+        this.setTimer();
     }
 
     render(){
