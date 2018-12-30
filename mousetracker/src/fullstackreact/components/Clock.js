@@ -11,39 +11,50 @@ const aFunction = (message) => {
 class Clock extends React.Component {
     constructor(props){
         super(props);
-        this.state = { time: null };
-        this.setInitialTime();
+        this.state = this.getTime();
+        //this.setInitialTime();
         setInterval(()=> {
-            const displayTime = this.getDisplayTime();        
-            this.setState((state)=> ({time: displayTime}));                       
+            const {hours, minutes, seconds, ampm} = this.getTime();
+            this.setState((state)=> ({
+                hours:hours, 
+                minutes:minutes, 
+                seconds: seconds, 
+                ampm: ampm}));                       
         }, 3000);
     }
     
     setInitialTime(){
-        this.setState((state) => ({time: this.getDisplayTime()}));
+        const t = this.getTime();
+        const displayTime = this.formatTime(t);
+        this.setState((state) => ({time: displayTime}));
     }
 
-    getDisplayTime(){
+    getTime(){
         const initialTime = new Date(),
             hours = initialTime.getHours(),
             minutes = initialTime.getMinutes(),
             seconds = initialTime.getSeconds(),
             ampm = hours >= 12 ? 'pm': 'am';
-        const displayTime = hours + ":" + minutes + ":" + seconds + " " + ampm;
+            return { 
+                        hours: hours,
+                        minutes : minutes,
+                        seconds : seconds,
+                        ampm    : ampm
+            };
+    }
+
+    formatTime(time){
+        const displayTime = time.hours + ":" + time.minutes + ":" + time.seconds + " " + time.ampm;
         return displayTime;
     }
 
     componentDidMount(){
         this.state = { time: null };
     }
+
     render(){
-        const currentTime = new Date(),
-                hours = currentTime.getHours(),
-                minutes = currentTime.getMinutes(),
-                seconds = currentTime.getSeconds(),
-                ampm = hours >= 12 ? 'pm': 'am';
-        //alert(time.toDateString());
-        /*
+        const {hours, minutes, seconds, ampm} = this.state;
+        
         return(
             <div className ="clock">
                 {
@@ -57,10 +68,6 @@ class Clock extends React.Component {
                 } {ampm}
             </div>
         )
-        */
-       return(
-           <div><h1>{this.state.time}</h1></div>
-       )
     }
 }
 
