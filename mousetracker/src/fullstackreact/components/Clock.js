@@ -12,7 +12,6 @@ class Clock extends React.Component {
     constructor(props){
         super(props);
         this.state = this.getTime();
-        //this.setInitialTime();
         setInterval(()=> {
             const {hours, minutes, seconds, ampm} = this.getTime();
             this.setState((state)=> ({
@@ -20,15 +19,9 @@ class Clock extends React.Component {
                 minutes:minutes, 
                 seconds: seconds, 
                 ampm: ampm}));                       
-        }, 3000);
+        }, 1000);
     }
-    
-    setInitialTime(){
-        const t = this.getTime();
-        const displayTime = this.formatTime(t);
-        this.setState((state) => ({time: displayTime}));
-    }
-
+   
     getTime(){
         const initialTime = new Date(),
             hours = initialTime.getHours(),
@@ -43,11 +36,6 @@ class Clock extends React.Component {
             };
     }
 
-    formatTime(time){
-        const displayTime = time.hours + ":" + time.minutes + ":" + time.seconds + " " + time.ampm;
-        return displayTime;
-    }
-
     componentDidMount(){
         this.state = { time: null };
     }
@@ -57,6 +45,7 @@ class Clock extends React.Component {
         
         return(
             <div className ="clock">
+                <h1>
                 {
                     hours == 0 ? 12 :
                     (hours > 12) ?
@@ -66,6 +55,7 @@ class Clock extends React.Component {
                 }:{
                     seconds > 9 ? seconds : `0${seconds}`
                 } {ampm}
+                </h1>
             </div>
         )
     }
