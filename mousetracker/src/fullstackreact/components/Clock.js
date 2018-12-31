@@ -42,6 +42,12 @@ class Clock extends React.Component {
         this.setState(this.getTime, this.setTimer);
     }
 
+    componentWillUnmount() {
+        if (this.timeout) {
+          clearTimeout(this.timeout);
+        }
+    }
+
     render(){
         const {hours, minutes, seconds, ampm} = this.state;
         
