@@ -59,7 +59,7 @@ const activities = [
 const AppContainer =() => (
     <div>
         <Header title="Timeline" />
-        <Content activity = {activity}/>       
+        <Content activities = {activities}/>       
     </div>
 )
 
@@ -71,18 +71,9 @@ class AppContainer1 extends React.Component{
 
     render(){
         return(
-            <div>
-            {
-            activities.map((a) => {
-            return(
-                <div>
-                <Content activity = {a}/>                
-                <Clock/>
-                </div>
-            )
-            })
-            }
-            
+            <div>            
+                <Content />
+                <Clock />            
             </div>
         )
     };
