@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import { Content, activities, activity} from './Content';
 import Clock from './Clock';
+import Container from './Container';
 
 const AppContainer =() => (
     <div>
@@ -25,4 +26,10 @@ class AppContainer1 extends React.Component{
     };
 }
 
-export default AppContainer1;
+const AppContainer2 = () =>(
+    <div>
+        <Container />       
+    </div>
+)
+
+export {AppContainer, AppContainer1, AppContainer2};

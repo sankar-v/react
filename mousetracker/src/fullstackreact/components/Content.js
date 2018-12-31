@@ -58,28 +58,59 @@ class Content extends React.Component {
 
     constructor(props){
         super(props);
-        this.state = {activities: []};
+        this.state = {
+            loading:false,  //set loading to false
+            activities: [], 
+        };
     }
 
+    /*
     componentDidMount(){
         const a = this.props.data;
-        alert(a);
+        //alert(a);
         this.setState({ activities: a });
+    }
+    */
+    componentDidMount(){
+        this.updateData();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        // Check to see if the requestRefresh prop has changed
+        if (nextProps.requestRefresh === true) {
+          this.setState({ loading: true }, this.updateData);
+        }
+    }
+    
+    // Call out to github data and refresh directory
+    updateData(){
+        this.setState(
+            {
+                loading: false,
+                activities : data.sort(() => 0.5 - Math.random())
+            },
+            this.props.onComponentRefresh
+        )
     }
 
     render() {
-        const activities = this.state.activities;
+        const {loading, activities} = this.state;
         return (
-            <div>
-            {
-            activities.map((a) => {
-            return(
+            <div className ="content">
+                <div className="line" />
+                {/* Show loading message if loading */}
                 <div>
-                    <ActivityItem activity = {a}/>
+                    {loading && <div> Loading </div>}
+                    {/* Timeline item */}
+                    {activities.map((a) => {
+                    return(
+                        <div>
+                            <ActivityItem key={a.id} activity = {a}/>
+                        </div>
+                    )
+                    })
+                    }
                 </div>
-            )
-            })
-            }
             </div>
           )
     }
