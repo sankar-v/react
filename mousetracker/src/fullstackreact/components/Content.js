@@ -1,6 +1,19 @@
 import React from 'react';
 import ActivityItem from './ActivityItem';
 
+const activity = {
+    timestamp: new Date().getTime(),
+    text: "Ate lunch",
+    user: {
+      id: 1,
+      name: 'Nate',
+      avatar: "http://www.croop.cl/UI/twitter/images/doug.jpg"
+    },
+    comments: [
+      { from: 'Ari', text: 'Me too!' }
+    ]
+}
+
 const data = [
     {
       timestamp: new Date().getTime(),
@@ -40,6 +53,7 @@ const data = [
       },
 ];
 
+const activities = data;
 class Content extends React.Component {
 
     constructor(props){
@@ -48,7 +62,9 @@ class Content extends React.Component {
     }
 
     componentDidMount(){
-        this.setState({ activities: data });
+        const a = this.props.data;
+        alert(a);
+        this.setState({ activities: a });
     }
 
     render() {
@@ -69,4 +85,4 @@ class Content extends React.Component {
     }
   }
 
-  export default Content;
+  export {Content, activities, activity} ;

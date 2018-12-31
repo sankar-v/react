@@ -1,60 +1,7 @@
 import React from 'react';
 import Header from './Header';
-import Content from './Content';
+import { Content, activities, activity} from './Content';
 import Clock from './Clock';
-
-const activity = {
-        timestamp: new Date().getTime(),
-        text: "Ate lunch",
-        user: {
-          id: 1,
-          name: 'Nate',
-          avatar: "http://www.croop.cl/UI/twitter/images/doug.jpg"
-        },
-        comments: [
-          { from: 'Ari', text: 'Me too!' }
-        ]
-}
-
-const activities = [
-    {
-      timestamp: new Date().getTime(),
-      text: "Ate lunch",
-      user: {
-        id: 1, name: 'Nate',
-        avatar: "http://www.croop.cl/UI/twitter/images/doug.jpg"
-      },
-      comments: [{ from: 'Ari', text: 'Me too!' }]
-    },
-    {
-      timestamp: new Date().getTime(),
-      text: "Woke up early for a beautiful run",
-      user: {
-        id: 2, name: 'Ari',
-        avatar: "http://www.croop.cl/UI/twitter/images/doug.jpg"
-      },
-      comments: [{ from: 'Nate', text: 'I am so jealous' }]
-    },
-    {
-        timestamp: new Date().getTime(),
-        text: "Ate lunch",
-        user: {
-          id: 1, name: 'Nate',
-          avatar: "http://www.croop.cl/UI/twitter/images/doug.jpg"
-        },
-        comments: [{ from: 'Ari', text: 'Me too!' }]
-      },
-      {
-        timestamp: new Date().getTime(),
-        text: "Woke up early for a beautiful run",
-        user: {
-          id: 2, name: 'Ari',
-          avatar: "http://www.croop.cl/UI/twitter/images/doug.jpg"
-        },
-        comments: [{ from: 'Nate', text: 'I am so jealous' }]
-      },
-];
-
 
 const AppContainer =() => (
     <div>
@@ -62,7 +9,6 @@ const AppContainer =() => (
         <Content activities = {activities}/>       
     </div>
 )
-
 
 class AppContainer1 extends React.Component{
     constructor(props){
@@ -72,7 +18,7 @@ class AppContainer1 extends React.Component{
     render(){
         return(
             <div>            
-                <Content />
+                <Content data = {activities}/>
                 <Clock />            
             </div>
         )
