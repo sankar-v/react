@@ -71,10 +71,11 @@ class Content extends React.Component {
         this.setState({ activities: a });
     }
     */
+    //set up data on init
     componentDidMount(){
         this.updateData();
     }
-
+    //Lifecycle events...
     componentWillReceiveProps(nextProps) {
         // Check to see if the requestRefresh prop has changed
         if (nextProps.requestRefresh === true) {
