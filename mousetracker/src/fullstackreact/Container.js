@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from './Header';
+import Header from './components/Timeline/Header';
 import {Content, activities } from './Content';
-import Footer from './Footer';
-import Clock from './Clock';
+import Footer from './components/Timeline/Footer';
+import Clock from './components/Timer/Clock';
 
 //an Asynch request
 const data = require('./data.json');

@@ -1,5 +1,5 @@
 import React from 'react';
-import ActivityItem from './ActivityItem';
+import ActivityItem from './components/Timeline/ActivityItem';
 
 const activity = {
     timestamp: new Date().getTime(),

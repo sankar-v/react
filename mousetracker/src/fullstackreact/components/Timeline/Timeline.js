@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Timeline.css';
+import MenuButton from './MenuButton';
 
 class Timeline extends React.Component {
 
@@ -8,13 +8,7 @@ class Timeline extends React.Component {
             <div className="notificationsFrame">
                 <div className="panel">
                     <div className="header">
-
-                        <div className="menuIcon">
-                            <div className="dashTop"></div>
-                            <div className="dashBottom"></div>
-                            <div className="circle"></div>
-                        </div>
-                    
+                        <MenuButton/>
                         <span className="title">Timeline</span>
 
                         <input  type="text" className="searchInput" placeholder="Search ..." />

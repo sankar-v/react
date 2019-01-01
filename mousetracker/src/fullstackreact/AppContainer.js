@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './Header';
+import Header from './components/Timeline/Header';
 import { Content, activities, activity} from './Content';
-import Clock from './Clock';
+import Clock from './components/Timer/Clock';
 import Container from './Container';
 
 const AppContainer =() => (

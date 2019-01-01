@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/Timeline.css';
 
 class Header extends React.Component{
 
@@ -11,31 +10,35 @@ class Header extends React.Component{
     getInitialState(){
         return {value: 'Hello!'};
     }
-
+    /*
     handleChange = (event) =>{
         const v = event.target.value;
         alert(v);
         this.setState(state => ({inputText: {v}}));
     }
-
+    */
     render(){
+        //class to add to the <input/> element
+        let searchInputClasses = ["searchInput"];
+        
+        //Update the class array if the state is visible
+        if (this.state.searchVisible) {
+            searchInputClasses.push("active");
+        }
+          
         return(
             <div className="header">
-                <div className = "menuIcon">
-                    <div className="dashTop"></div>
-                    <div className="dashBottom"></div>
-                    <div className="circle"></div>
-                </div>
-               
-                <span className="title">{this.props.title}</span>
-                
+                <div className="fa fa-more"></div>
+
+                <span className="title">
+                {this.props.title}
+                </span>
+                                
                 <input 
                     type="text"
-                    text = {this.state.inputText}
-                    className="searchInput"
-                    placeholder="Search ..."  onChange={this.handleChange}/>
-
-                <button>{this.state.inputText}</button>    
+                    className={searchInputClasses.join(' ')}
+                    placeholder="Search ..." />
+      
                 <div className="fa fa-search searchIcon"></div>
             </div>
         )
