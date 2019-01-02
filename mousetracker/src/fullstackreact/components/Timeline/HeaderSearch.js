@@ -1,9 +1,7 @@
 import React from 'react';
-import SearchForm from './SearchForm';
-import PropTypes from 'prop-types';
+import SearchForm from './SearchFormWithSubmit'
 
 class Header extends React.Component {
-  
   constructor(props) {
     super(props);
 
@@ -14,14 +12,9 @@ class Header extends React.Component {
 
   // toggle visibility when run on the state
   showSearch() {
-    alert("Clicked");
     this.setState({
       searchVisible: !this.state.searchVisible
     })
-  }
-
-  submitForm(val){
-      this.props.onSearch(val);
   }
 
   render() {
@@ -33,46 +26,29 @@ class Header extends React.Component {
       searchInputClasses.push("active");
     }
 
-    const wrapperStyle = {
-      backgroundColor: 'rgba(251, 202, 43, 1)'
-    }
-
-    const titleStyle = {
-      color: '#111111'
-    }
-
-    const menuColor = {
-      backgroundColor: '#111111'
-    }
-
     return (
-      <div style={wrapperStyle} className="header">
+      <div className="header">
         <div className="menuIcon">
-          <div className="dashTop" style={menuColor}></div>
-          <div className="dashBottom" style={menuColor}></div>
-          <div className="circle" style={menuColor}></div>
+          <div className="dashTop"></div>
+          <div className="dashBottom"></div>
+          <div className="circle"></div>
         </div>
 
-        <span style={titleStyle} className="title">
+        <span className="title">
           {this.props.title}
         </span>
 
-       <SearchForm
+        <SearchForm
           searchVisible={this.state.searchVisible}
           onSubmit={this.props.onSubmit} />
 
         {/* Adding an onClick handler to call the showSearch button */}
         <div
-          style={titleStyle}
           onClick={this.showSearch.bind(this)}
           className="fa fa-search searchIcon"></div>
       </div>
     )
   }
-}
-
-Header.propTypes = {
-    onSearch: PropTypes.func
 }
 
 export default Header

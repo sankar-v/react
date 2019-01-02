@@ -26,4 +26,4 @@ class GithubActivityItem extends React.Component {
   }
 }
 
-export default GithubActivityItem
+export default GithubActivityItem;

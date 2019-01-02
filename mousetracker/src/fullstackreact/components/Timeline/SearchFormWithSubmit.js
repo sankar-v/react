@@ -27,31 +27,27 @@ class SearchForm extends React.Component {
     });
   }
 
-  showSearch() {
-    this.setState({
-      searchVisible: !this.state.searchVisible
-    });
+  submitForm(e) {
+    e.preventDefault();
+
+    const {searchText} = this.state;
+    this.props.onSubmit(searchText);
   }
 
   render() {
-    const {searchVisible} = this.state;
+    const {searchVisible} = this.props;
     let searchClasses = ['searchInput'];
     if (searchVisible) {
       searchClasses.push('active');
     }
 
     return (
-      <form className="header">
+      <form onSubmit={this.submitForm.bind(this)}>
         <input
           type="search"
           className={searchClasses.join(' ')}
           onChange={this.updateSearchInput.bind(this)}
           placeholder="Search ..."
-        />
-
-        <div
-          onClick={this.showSearch.bind(this)}
-          className="fa fa-search searchIcon"
         />
       </form>
     );
