@@ -102,7 +102,7 @@
     font-weight: 600;
     font-size: 15px;
   }
-  .demo .notificationsFrame .header .searchIcon {
+  .demo .notificationsFrame .header . {
     position: absolute;
     z-index: 3;
     font-size: 21px;

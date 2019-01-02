@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchForm from './SearchForm';
 
 class Header extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class Header extends React.Component {
 
   // toggle visibility when run on the state
   showSearch() {
+    alert("Clicked");
     this.setState({
       searchVisible: !this.state.searchVisible
     })
