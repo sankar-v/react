@@ -51,10 +51,9 @@ class Header extends React.Component {
           {this.props.title}
         </span>
 
-        <input
-          type="text"
-          className={searchInputClasses.join(' ')}
-          placeholder="Search ..." />
+       <SearchForm
+          searchVisible={this.state.searchVisible}
+          onSubmit={this.props.onSubmit} />
 
         {/* Adding an onClick handler to call the showSearch button */}
         <div
