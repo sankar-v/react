@@ -30,6 +30,7 @@ class SearchFormWithSubmit extends React.Component {
 
   submitForm(e) {
     e.preventDefault();
+    alert("inside Search");
     const {searchText} = this.state;
     this.props.onSubmit(searchText);
   }
@@ -43,7 +44,6 @@ class SearchFormWithSubmit extends React.Component {
 
     return (
       <form onSubmit={this.submitForm.bind(this)}>
-        <h1>Hello type out the details below </h1>
         <input
           type="search"
           className={searchClasses.join(' ')}

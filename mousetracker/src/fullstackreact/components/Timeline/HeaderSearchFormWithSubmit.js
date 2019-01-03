@@ -1,7 +1,7 @@
 import React from 'react';
-import SearchForm from './SearchForm'
+import SearchFormWithSubmit from './SearchFormWithSubmit';
 
-class Header extends React.Component {
+class HeaderSearchFormWithSubmit extends React.Component {
   constructor(props) {
     super(props);
 
@@ -14,7 +14,12 @@ class Header extends React.Component {
   showSearch() {
     this.setState({
       searchVisible: !this.state.searchVisible
-    })
+    });
+  }
+
+  onSubmit(text){
+    alert("inside HeaderSearchFormWithSubmit");  
+    this.props.onSubmit(text);
   }
 
   render() {
@@ -38,9 +43,9 @@ class Header extends React.Component {
           {this.props.title}
         </span>
 
-        <SearchForm
+        <SearchFormWithSubmit
           searchVisible={this.state.searchVisible}
-          onSubmit={this.props.onSubmit} />
+          onSubmit={this.onSubmit.bind(this)} />
 
         {/* Adding an onClick handler to call the showSearch button */}
         <div
@@ -51,4 +56,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header
+export default HeaderSearchFormWithSubmit;
