@@ -11,16 +11,22 @@ import HeaderSearch from './fullstackreact/components/Timeline/HeaderSearch';
 import ContentSearch from './fullstackreact/components/Timeline/ContentSearch';
 
 class SimpleSearchHolder extends React.Component{
+    
     state = { searchText: ''};
+    
     handleSubmit = searchText => this.setState(
         {searchText}
     );
+    
     render(){
         const { Component } = this.props;
         const { searchText } = this.state;
         return(
             <div>
-                <Component searchText = {searchText} onSubmit={this.handleSubmit} />
+                <Component searchText = {searchText} 
+                    visible readonly = {true} max = {10} maxlength = {2}
+                    size = {10} checked
+                    onSubmit={this.handleSubmit} />
                 <div> You searched for : {searchText}</div>
             </div>
         );
