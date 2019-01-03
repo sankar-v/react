@@ -34,15 +34,15 @@ class SimpleSearchHolder extends React.Component{
 }
 
 export const load = () => {
-    //ReactDOM.render(<SearchForm />, document.getElementById('demo3'));
+    ReactDOM.render(<SearchForm />, document.getElementById('demo3'));
 
-    //ReactDOM.render(<Header />, document.getElementById('searchStylesDemo'));
-    /*
+    ReactDOM.render(<Header />, document.getElementById('searchStylesDemo'));
+    
     ReactDOM.render(
         <SimpleSearchHolder Component={SearchFormWithSubmit} />,
         document.getElementById('searchForm')
     );
-    */
+    
 
     ReactDOM.render(
         <SimpleSearchHolder Component={HeaderSearchFormWithSubmit} />,
