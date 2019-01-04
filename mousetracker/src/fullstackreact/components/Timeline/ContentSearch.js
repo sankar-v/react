@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Header from '../Timeline/HeaderSearch';
-import ActivityItem from './ActivityItem';
+import GithubActivityItem from './GithubActivityItem';
 
 const data = require('../../../fullstackreact/data.json');
 
@@ -49,7 +49,7 @@ class Panel extends React.Component {
         loading: false,
         activities: data
       },
-      this.props.onComponentRefresh
+      this.props.onComponentRefresh(this.state.activities)
     );
   }
 
@@ -65,8 +65,9 @@ class Panel extends React.Component {
           {loading && <div>Loading</div>}
           {/* Timeline item */}
           {filtered.map(activity => (
-            <ActivityItem key={activity.id} activity={activity} />
-          ))}
+            <GithubActivityItem  activity={activity} />  
+          )
+          )}
         </div>
       </div>
     );

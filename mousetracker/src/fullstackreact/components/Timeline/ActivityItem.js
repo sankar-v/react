@@ -6,7 +6,7 @@ class ActivityItem extends React.Component {
     }
 
     render(){
-        const {activity} = this.props;
+        const {key, activity} = this.props;
         const user = activity.user;
         return(
         <div>

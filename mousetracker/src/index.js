@@ -19,6 +19,9 @@ class SimpleSearchHolder extends React.Component{
     handleSubmit = (searchText) =>{
         this.setState({searchText});
         alert("Inside index->handleSubmit" + searchText);
+    }
+    onComponentRefresh=(activities)=>{
+        alert(activities);
     } 
     render(){
         const { Component } = this.props;
@@ -33,7 +36,10 @@ class SimpleSearchHolder extends React.Component{
     }
 }
 
+
 export const load = () => {
+    
+
     ReactDOM.render(<SearchForm />, document.getElementById('demo3'));
 
     ReactDOM.render(<Header />, document.getElementById('searchStylesDemo'));
@@ -43,13 +49,12 @@ export const load = () => {
         document.getElementById('searchForm')
     );
     
-
     ReactDOM.render(
         <SimpleSearchHolder Component={HeaderSearchFormWithSubmit} />,
         document.getElementById('headerSearch')
     );
 
-    //ReactDOM.render(<ContentSearch />, document.getElementById('searchDemo'));
+    ReactDOM.render(<ContentSearch onComponentRefresh = {this.onComponentRefresh}/>, document.getElementById('searchDemo'));
 };
 
 try {
