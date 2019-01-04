@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from '../Timeline/HeaderSearch';
+import Header from './HeaderSearch';
 import GithubActivityItem from './GithubActivityItem';
 
 const data = require('../../../fullstackreact/data.json');

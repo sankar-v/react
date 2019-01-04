@@ -1,64 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-//import 'font-awesome/css/font-awesome.css';
 import './index.css';
 
-import SearchForm from './fullstackreact/components/Timeline/SearchForm';
-import SearchFormWithSubmit from './fullstackreact/components/Timeline/SearchFormWithSubmit';
-import Header from './fullstackreact/components/Timeline/Header';
-import HeaderSearch from './fullstackreact/components/Timeline/HeaderSearch';
-import ContentSearch from './fullstackreact/components/Timeline/ContentSearch';
-import HeaderSearchFormWithSubmit from './fullstackreact/components/Timeline/HeaderSearchFormWithSubmit';
 
-class SimpleSearchHolder extends React.Component{
-    
-    state = { searchText: ''};
-    
-    /*handleSubmit = searchText => this.setState({searchText});*/
-    handleSubmit = (searchText) =>{
-        this.setState({searchText});
-        alert("Inside index->handleSubmit" + searchText);
-    }
-    onComponentRefresh=(activities)=>{
-        alert(activities);
-    } 
-    render(){
-        const { Component } = this.props;
-        const { searchText } = this.state;
-        return(
-            <div>
-                <Component searchText = {searchText} 
-                    onSubmit={this.handleSubmit} />
-                <div> You searched for : {searchText}</div>
-            </div>
-        );
-    }
-}
-
-
+import {Hour, Minute, Second} from './fullstackreact/components/Timer/Hour';
+import Clock from './fullstackreact/components/Timer/FormattedClock';
+/*
 export const load = () => {
-    
-
-    ReactDOM.render(<SearchForm />, document.getElementById('demo3'));
-
-    ReactDOM.render(<Header />, document.getElementById('searchStylesDemo'));
-    
-    ReactDOM.render(
-        <SimpleSearchHolder Component={SearchFormWithSubmit} />,
-        document.getElementById('searchForm')
-    );
-    
-    ReactDOM.render(
-        <SimpleSearchHolder Component={HeaderSearchFormWithSubmit} />,
-        document.getElementById('headerSearch')
-    );
-
-    ReactDOM.render(<ContentSearch onComponentRefresh = {this.onComponentRefresh}/>, document.getElementById('searchDemo'));
+  ReactDOM.render(
+    <div>
+      <div>
+        Minute: <Minute minutes={12} />
+      </div>
+      <div>
+        Second: <Second seconds={51} />
+      </div>
+    </div>,
+    document.getElementById('demo1')
+  );
 };
+*/
+  ReactDOM.render(
+    <div className="clock">
+      <Clock format="h:m:s p" />
+    </div>,
+    document.getElementById('demo2')
+  );
 
+/*
 try {
-    load();
-}catch (e) {
-    console.log(e);
+  load();
+} catch (e) {
+  console.log(e);
 }
+*/
