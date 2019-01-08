@@ -5,6 +5,8 @@ import Formatter from './fullstackreact/components/Timer/Formatter';
 
 import {Hour, Minute, Second} from './fullstackreact/components/Timer/Hour';
 import Clock from './fullstackreact/components/Timer/FormattedClock';
+import {TimeForm, TimeZones, RemoteTime} from './fullstackreact/components/Timer/TimeForm';
+
 /*
 export const load = () => {
   ReactDOM.render(
@@ -35,6 +37,7 @@ const student = {
     year: '2000'
 };
 
+/*
 const Display = ({age}) => (
     <span>{age}</span>
 )
@@ -46,9 +49,12 @@ const CalculateRaise = ({sex, age, ratio=2}) => {
         return <span>Raise NOT permitted</span>
     }
 }
+*/
 
-ReactDOM.render(<Display {...student} />, document.getElementById('demo1'));
-ReactDOM.render(<CalculateRaise {...student}/>, document.getElementById('demo2'));
+//Spread operator destructuring into respective properties..
+//ReactDOM.render(<Display {...student} />, document.getElementById('demo1'));
+//ReactDOM.render(<CalculateRaise {...student}/>, document.getElementById('demo2'));
+
 /*ReactDOM.render(<Formatter format="h:m:s a" 
                             hours={12}  
                             minutes={10} 
@@ -62,3 +68,5 @@ try {
   console.log(e);
 }
 */
+
+ReactDOM.render(<TimeZones />, document.getElementById('demo1'));

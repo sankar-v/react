@@ -1,4 +1,4 @@
-import React from 'C:/Users/svenkatachalam/AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/react';
+import React from 'react';
 
 class ActivityItem extends React.Component {
     constructor(props){
