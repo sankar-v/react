@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Formatter from './fullstackreact/components/Timer/Formatter';
-
 import {Hour, Minute, Second} from './fullstackreact/components/Timer/Hour';
 import Clock from './fullstackreact/components/Timer/FormattedClock';
 import {TimeForm, Select, RemoteTime} from './fullstackreact/components/Timer/TimeForm';
+import FetchTime from './fullstackreact/components/Timeline/FetchTime';
 
 /*
 export const load = () => {
@@ -74,4 +74,7 @@ const defaultValue =  'PST';
 ReactDOM.render(<Select defaultValue = {defaultValue} data = {data}/>, document.getElementById('demo1'));
 */
 //ReactDOM.render(<TimeForm/>, document.getElementById('demo1'));
-ReactDOM.render(<RemoteTime/>, document.getElementById('demo2'));
+//ReactDOM.render(<RemoteTime/>, document.getElementById('demo2'));
+
+
+ReactDOM.render(<FetchTime tz="PST" timeString = ""/>, document.getElementById('demo2'));
