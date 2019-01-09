@@ -5,7 +5,7 @@ import Formatter from './fullstackreact/components/Timer/Formatter';
 
 import {Hour, Minute, Second} from './fullstackreact/components/Timer/Hour';
 import Clock from './fullstackreact/components/Timer/FormattedClock';
-import {TimeForm, TimeZones, RemoteTime} from './fullstackreact/components/Timer/TimeForm';
+import {TimeForm, Select, RemoteTime} from './fullstackreact/components/Timer/TimeForm';
 
 /*
 export const load = () => {
@@ -68,5 +68,9 @@ try {
   console.log(e);
 }
 */
-
-ReactDOM.render(<TimeZones />, document.getElementById('demo1'));
+/*
+const data = ['PST', 'MST','MDT', 'EST','UTC'];
+const defaultValue =  'PST';
+ReactDOM.render(<Select defaultValue = {defaultValue} data = {data}/>, document.getElementById('demo1'));
+*/
+ReactDOM.render(<TimeForm/>, document.getElementById('demo1'));

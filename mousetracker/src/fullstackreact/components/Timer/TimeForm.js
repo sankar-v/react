@@ -6,14 +6,23 @@ const RemoteTime = () =>{
     });
 }
 
-class TimeZones extends React.Component{
+const defaultValue = 'PST';
+const data = ['PST', 'MST','MDT', 'EST','UTC'];
+
+class Select extends React.Component{
     
     constructor(props){
         super(props);
-        this.timeZones = ['PST', 'MST','MDT', 'EST','UTC'];
+        //this.timeZones = 
         this.state = {
-            tz : 'PST',
+            defaultValue : null, //PST
+            data : [], //props...['PST', 'MST','MDT', 'EST','UTC'];
         };
+    }
+
+    componentDidMount(){
+        this.setState((state) => ({data : this.props.data}));
+        this.setState((state) => ({defaultValue : this.props.defaultValue}));
     }
 
     onChange(e){
@@ -26,8 +35,8 @@ class TimeZones extends React.Component{
                 <div>
                     <select onChange={this.onChange.bind(this)}>                        
                     {
-                            this.timeZones.map( tz => (
-                                <option value={tz}>{tz}</option>
+                            this.state.data.map(x => (
+                                <option value={x}>{x}</option>
                             ))
                     }                
                     </select>
@@ -39,56 +48,41 @@ class TimeZones extends React.Component{
 class TimeForm extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            currentTime: null,
-            message: 'A chronic string message',
+        this.state = {           
+            displayText: 'A chronic string message',
         }
     }
-
-    componentDidMount(){
-        this.getSetCurrentTime();
-    }
-    
-    getSetCurrentTime(){
-        var newTime = null;
-        RemoteTime.
-        then((time)=> {
-            this.setState( {currentTime: time})
-            newTime = time;    
-        });
-        //return newTime;
-        alert("inside getSetCurrentTime::" + newTime);
-    }
-
+   
     updateRequest(e){
-
+        this.props.onUpdateRequest();
     }
 
     onSubmit(e){
+        this.props.onSubmit();
+    }
 
+    onChange(evt){
+        var txt = evt.text;
+        this.setState((state) => ({displayText : txt}));
     }
     
     render(){
         return(
         <div>
             <form onSubmit= {this.onSubmit.bind(this)}>
-                <button onClick={this.getSetCurrentTime.bind(this)}>
-                    Get the Current Time 
-                </button>
-                <TimeZones />
+                <Select data={data} defaultValue = {defaultValue}  />
                 <span>
                     <input type="text" 
-                        placeholder="A chronice string message"
+                        placeholder={this.state.displayText}
                         onChange = {this.onChange.bind(this)} /> 
                 </span>
                 <button onClick={this.updateRequest.bind(this)}>
                     Update Request 
-                </button>
-                <span>We will be taking the request from :: {this.state.message}</span>
+                </button>                
             </form>
         </div>
         );
     }
 }
 
-export {TimeForm, TimeZones, RemoteTime};
+export {TimeForm, Select, RemoteTime};
