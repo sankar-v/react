@@ -73,4 +73,5 @@ const data = ['PST', 'MST','MDT', 'EST','UTC'];
 const defaultValue =  'PST';
 ReactDOM.render(<Select defaultValue = {defaultValue} data = {data}/>, document.getElementById('demo1'));
 */
-ReactDOM.render(<TimeForm/>, document.getElementById('demo1'));
+//ReactDOM.render(<TimeForm/>, document.getElementById('demo1'));
+ReactDOM.render(<RemoteTime/>, document.getElementById('demo2'));

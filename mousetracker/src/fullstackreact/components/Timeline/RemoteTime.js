@@ -3,28 +3,52 @@ import 'whatwg-fetch';
 import './App.css';
 import TimeForm from './TimeForm';
 
+//https://stackoverflow.com/questions/47658765/objects-are-not-valid-as-a-react-child-found-object-promise/47659112
+
 class RemoteTime extends React.Component {
     constructor(props) {
         super(props);
-        this.fetchCurrentTime = this.fetchCurrentTime.bind(this);
-        this.handleFormSubmit = this.handleFormSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
         this.state = {
-            currentTime: null, msg: 'now',
+            currentTime: null, 
+            msg: 'now', 
+            tz:'PST',
         }
     }
 
-    fetchCurrentTime() { }
-    getApiUrl() { }
+    //https://andthetimeis.com/pst/xyz.json returns json {"dateString":"2019-01-09 01:24:55 -08:00"}
+    fetchCurrentTime() { 
+        fetch(this.getApiUrl())
+            .then(resp => resp.json())
+            .then(resp =>{
+                const currentTime = resp.dateString;
+                this.setState((state) =>({currentTime: currentTime}))
+            });
+    }
+    
+    //https://andthetimeis.com/pst/xyz.json
+    //https://andthetimeis.com/pst/in+two+hours/xyz.json
+    //https://andthetimeis.com/pst/next+monday/xyz.json
+    //https://andthetimeis.com/pst/this+friday+at+noon/xyz.json
+    //https://andthetimeis.com/pdt/7+hours+before+tomorrow+at+noon/xyz.json
+
+    getApiUrl() {
+        const {tz, msg} = this.state;
+        const host = 'https://andthetimeis.com';
+        let url = host + '/' + tz + '/' + msg + '.json';
+        return url;
+    }
     
     handleFormSubmit(evt) {
-        
+        this.fetchCurrentTime();
     }
  
-    handleChange(newState) { }
+    handleChange(newState) {
+        this.setState(newState);
+    }
 
     render() {
-        const { currentTime, tz } = this.state;
+        const currentTime = this.state.currentTime;
+        const tz = this.state.tz;
         const apiUrl = this.getApiUrl();
 
         return (
@@ -32,12 +56,12 @@ class RemoteTime extends React.Component {
                 {!currentTime &&
                     <button onClick={this.fetchCurrentTime}>
                         Get the current time
-                </button>
+                    </button>
                 }
                 {currentTime && <div>The current time is: {currentTime}</div>}
                 <TimeForm
-                    onFormSubmit={this.handleFormSubmit}
-                    onFormChange={this.handleChange}
+                    onFormSubmit={this.handleFormSubmit.bind(this)}
+                    onFormChange={this.handleChange.bind(this)}
                     tz={tz}
                     msg={'now'}
                 />
