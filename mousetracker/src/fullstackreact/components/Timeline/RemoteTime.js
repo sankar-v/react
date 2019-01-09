@@ -16,7 +16,11 @@ class RemoteTime extends React.Component {
 
     fetchCurrentTime() { }
     getApiUrl() { }
-    handleFormSubmit(evt) { }
+    
+    handleFormSubmit(evt) {
+        
+    }
+ 
     handleChange(newState) { }
 
     render() {

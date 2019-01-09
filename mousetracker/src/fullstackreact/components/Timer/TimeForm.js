@@ -26,7 +26,9 @@ class Select extends React.Component{
     }
 
     onChange(e){
-        alert(e.target.value);
+        let newTz = e.target.value;
+        alert("Timezone chosen is::" + newTz);
+        this.props.onTimeZoneChange(newTz);
     }
 
     render(){
@@ -36,7 +38,7 @@ class Select extends React.Component{
                     <select onChange={this.onChange.bind(this)}>                        
                     {
                             this.state.data.map(x => (
-                                <option value={x}>{x}</option>
+                                <option key={i= i + 1} value={x}>{x}</option>
                             ))
                     }                
                     </select>
@@ -48,37 +50,59 @@ class Select extends React.Component{
 class TimeForm extends React.Component{
     constructor(props){
         super(props);
+        
+        const { tz, msg } = this.props;
+        this.state = { tz, msg };
+
+        /*
         this.state = {           
-            displayText: 'A chronic string message',
+            msg: 'A chronic string message',
+            tz: 'PST',
         }
+        */
     }
    
-    updateRequest(e){
-        this.props.onUpdateRequest();
+    componentDidMount(){
+        this.state.msg = this.props.msg;
+        this.state.tz = this.props.tz;
     }
 
-    onSubmit(e){
-        this.props.onSubmit();
+    onFormSubmit(e){
+        e.preventDefault();
+        typeof this.props.onFormSubmit === 'function' &&
+            this.props.onFormSubmit(this.state);
     }
 
-    onChange(evt){
-        var txt = evt.text;
-        this.setState((state) => ({displayText : txt}));
+    onTextMessageChange(evt){
+        //var txt = evt.target.value;
+        const msg = encodeURIComponent(evt.target.value).replace(/%20/, '+');
+        this.setState({msg}, this.handleChange);
+        //this.setState((state) => ({msg : txt}));
+    }
+
+    handleChange(){
+        typeof this.props.onFormChange === 'function' &&
+            this.props.onFormChange(this.state);
+    }
+
+    onTimeZoneChange(newTimeZone){
+        //alert("Inside Time Form -> onTimeZoneChange::" + newTimeZone);
+        //this.setState((state) => ({tz:newTimeZone}));
+        this.setState({tz}, this.handleChange);
     }
     
     render(){
         return(
         <div>
-            <form onSubmit= {this.onSubmit.bind(this)}>
-                <Select data={data} defaultValue = {defaultValue}  />
+            <form onSubmit= {this.onFormSubmit.bind(this)}>
+                <Select data={data} defaultValue = {this.state.tz} onTimeZoneChange = {this.onTimeZoneChange.bind(this)} />
                 <span>
                     <input type="text" 
-                        placeholder={this.state.displayText}
-                        onChange = {this.onChange.bind(this)} /> 
+                        placeholder={this.state.msg}
+                        onChange = {this.onTextMessageChange.bind(this)}
+                        value = {this.state.msg} /> 
                 </span>
-                <button onClick={this.updateRequest.bind(this)}>
-                    Update Request 
-                </button>                
+                <input type= "submit" value= "Update Request" />                 
             </form>
         </div>
         );
