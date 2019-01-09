@@ -85,7 +85,7 @@ class TimeForm extends React.Component{
             this.props.onFormChange(this.state);
     }
 
-    onTimeZoneChange(newTimeZone){
+    onTimeZoneChange(tz){
         //alert("Inside Time Form -> onTimeZoneChange::" + newTimeZone);
         //this.setState((state) => ({tz:newTimeZone}));
         this.setState({tz}, this.handleChange);
