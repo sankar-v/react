@@ -1,11 +1,18 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { rootReducer, initialState } from './reducers';
+import { reducer, initialState as userInitialState } from './currentUser';
 
-export const configureStore =() => {
+export const configureStore = () => {
     const store = createStore(
-        rootReducer, //root reducer
-        initialState,   //our initialState
-    );
+        combineReducers({
+            time : rootReducer, //root reducer
+            user: reducer,   //our initialState
+        }), //root reducer
+        {
+            time: initialState,
+            user: userInitialState
+        },
+    )
     return store;
 }
 

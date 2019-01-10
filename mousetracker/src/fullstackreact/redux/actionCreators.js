@@ -11,6 +11,15 @@ export const login = (user) =>( {
     payload : user
 });
 
-export const logout = () => ({
+/*export const logout = () => (
+    
+    {
     type : types.LOGOUT,
 });
+*/
+export const logout = () => { 
+    alert("hello");
+    return {
+        type: types.LOGOUT,
+    }
+};

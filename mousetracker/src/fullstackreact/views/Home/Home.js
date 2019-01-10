@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchNewTime } from '../../redux/actionCreators';
+import { fetchNewTime,logout } from '../../redux/actionCreators';
 
 const Home = (props) => {
     return(
@@ -10,6 +10,7 @@ const Home = (props) => {
             <button onClick = {props.updateTime}>
                 Update Time
             </button>
+            <a onClick={props.logout} href="#">Logout</a>
         </div>
     )
 }
@@ -21,7 +22,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    updateTime: () => dispatch(fetchNewTime())
+    updateTime: () => dispatch(fetchNewTime()),
+    logout : () => dispatch(logout())   
 });
 
 export default connect(
