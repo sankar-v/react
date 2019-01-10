@@ -7,6 +7,7 @@ import Clock from './fullstackreact/components/Timer/FormattedClock';
 import {TimeForm, Select, RemoteTime} from './fullstackreact/components/Timer/TimeForm';
 import FetchTime from './fullstackreact/components/Timeline/FetchTime';
 import {Route1} from './fullstackreact/components/routing/Route1';
+import Root from './fullstackreact/containers/Root';
 /*
 export const load = () => {
   ReactDOM.render(
@@ -78,4 +79,7 @@ ReactDOM.render(<Select defaultValue = {defaultValue} data = {data}/>, document.
 
 
 //ReactDOM.render(<FetchTime tz="PST" timeString = ""/>, document.getElementById('demo2'));
-ReactDOM.render(<Route1/>, document.getElementById("demo1"));
+//ReactDOM.render(<Route1/>, document.getElementById("demo1"));
+
+ReactDOM.render( <Root />, document.getElementById('demo1')
+);
