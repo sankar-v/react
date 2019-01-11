@@ -1,18 +1,19 @@
-import { createStore, combineReducers } from 'redux';
-import { rootReducer, initialState } from './reducers';
-import { reducer, initialState as userInitialState } from './currentUser';
+import { createStore, applyMiddleware } from 'redux';
+import { initialState, rootReducer } from './reducers';
+
+import loggingMiddleware from './loggingMiddleware';
+import apiMiddleware from './apiMiddleware';
 
 export const configureStore = () => {
     const store = createStore(
-        combineReducers({
-            time : rootReducer, //root reducer
-            user: reducer,   //our initialState
-        }), //root reducer
-        {
-            time: initialState,
-            user: userInitialState
-        },
-    )
+        rootReducer, 
+        initialState,
+        applyMiddleware(
+            apiMiddleware,
+            loggingMiddleware,
+        ) 
+    );
+
     return store;
 }
 
