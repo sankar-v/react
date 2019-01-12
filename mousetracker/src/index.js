@@ -10,6 +10,7 @@ import {Route1} from './fullstackreact/components/routing/Route1';
 import Root from './fullstackreact/containers/Root';
 import TicTacToe from './fullstackreact/tictactoe/TicTacToe';
 import {Square, StyleButton} from './fullstackreact/tictactoe/Square';
+import Game from './fullstackreact/tictactoe/Game';
 
 /*
 export const load = () => {
@@ -89,4 +90,5 @@ ReactDOM.render(<Select defaultValue = {defaultValue} data = {data}/>, document.
 //ReactDOM.render(<TicTacToe/>, document.getElementById('demo1'));
 //ReactDOM.render(<Square/>, document.getElementById('demo1'));
 //ReactDOM.render(<Square/>, document.getElementById('demo1'));
-ReactDOM.render(<TicTacToe />, document.getElementById('demo1'));
+//ReactDOM.render(<TicTacToe />, document.getElementById('demo1'));
+ReactDOM.render(<Game />, document.getElementById('demo1'));

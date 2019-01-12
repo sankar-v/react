@@ -1,5 +1,5 @@
 import React from 'react';
-import {Square} from './Square';
+import {Square} from './Square1';
 
 //5:40 to 6:05 am..-- 25 mins..
 class TicTacToe extends React.Component{
