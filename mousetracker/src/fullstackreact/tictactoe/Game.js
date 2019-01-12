@@ -1,6 +1,7 @@
 import React from 'react';
 import {Board, calculateWinner} from './Board';
 
+//https://reactjs.org/tutorial/tutorial.html#passing-data-through-props
 class Game extends React.Component {
 
     constructor(props){
