@@ -67,20 +67,15 @@ class Board extends React.Component{
         return <Square value= {this.state.squares[i]}
             onClick ={() => {this.handleClick(i)}}/>
     }
+    */
+   renderSquare(i){
+        return <Square value= {this.state.squares[i]}
+                onClick ={() => {this.props.onClick(i)}}/>
+    }
 
-    render(){
-
-        const winner = calculateWinner(this.state.squares);
-        let status;
-        if (winner){
-            status = 'Winner: ' + winner;
-        }else{
-            status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-        }
-       
+    render(){         
         return(
-            <div>
-                <div className="status">{status}</div>
+            <div>             
                 <div className="board-row">
                     {this.renderSquare(0)}
                     {this.renderSquare(1)}
