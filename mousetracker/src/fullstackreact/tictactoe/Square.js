@@ -1,14 +1,33 @@
 import React from 'react';
 
-class Square extends React.Component{
-    onButtonClick(event){
-        alert(event.target.value);
-    }
-    render(){
-        return(
-            <button className = "square" onClick = {this.onButtonClick.bind(this)}/>            
-        )
-    }
-}
+const StyleButton = () => (
+  <button>Hello</button>
+)
 
-export default Square;
+class Square extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+
+    onButtonClick(event){
+      alert(event.target.value);
+      this.props.onClick(event.target.value);
+    }
+
+    componentDidMount(){
+      var value = this.props.value || 'X';
+      this.setState({value:value});
+    }
+
+    render() {
+      return (
+        <button
+          className="square" value={this.props.value} onClick={this.onButtonClick.bind(this)}>          
+          {this.props.label}
+        </button>
+      );
+    }
+  }
+
+ 
+  export  {Square,StyleButton};
