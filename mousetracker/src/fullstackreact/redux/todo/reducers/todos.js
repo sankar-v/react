@@ -1,6 +1,8 @@
 const todos = (state =[], action) =>{
+    alert(action.type)
     switch(action.type){
         case 'ADD_TODO':
+            alert('in add to do');
             return[
                 ...state,
                 {
