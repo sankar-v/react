@@ -1,16 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import rootReducer from './fullstackreact/redux/todo/reducers/index';
-import App from './fullstackreact/redux/todo/components/App';
+import Counter from './fullstackreact/redux/counter/components';
+import counter from './fullstackreact/redux/counter/reducers';
 
-const store = createStore(rootReducer);
+const store = createStore(counter);
 
-ReactDOM.render(
-    <Provider store={store}>
-        <App/>
-    </Provider>,
-    document.getElementById('demo1')
-);
+const demoEl = document.getElementById('demo1');
+
+const render = () => ReactDOM.render(
+    <Counter    
+        value={store.getState()}
+        onIncrement = {() => store.dispatch({type: 'INCREMENT'})}
+        onDecrement = {() => store.dispatch({type: 'DECRMENT'})} />,
+        demoEl
+)
+store.subscribe(render);
+render();
