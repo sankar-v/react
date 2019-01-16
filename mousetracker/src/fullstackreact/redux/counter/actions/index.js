@@ -1,9 +1,9 @@
-export const increment = (ctr) => ({
+export const increment = (counter) => ({
     type : 'INCREMENT',
-    counter : ctr++
+    counter
 })
 
-export const decrement = (ctr) => ({
+export const decrement = (counter) => ({
     type : 'DECREMENT',
-    counter : ctr--
+    counter
 })

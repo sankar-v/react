@@ -1,4 +1,10 @@
-const counter = (state=null, action) => {
+//initial (starting) state
+export const initialState = {
+    counter: 0,
+}
+
+const counter = (state = initialState, action) => {
+    alert(action.type + ":" + action.counter)
     switch(action.type){
         case 'INCREMENT':
             return {
