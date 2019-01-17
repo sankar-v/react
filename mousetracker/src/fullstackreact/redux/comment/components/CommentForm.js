@@ -1,32 +1,39 @@
 import React from 'react';
 
-const CommentForm = (props) => (
+class CommentForm extends React.Component{
     
-    <form className="commentForm" 
-        onSubmit={ (e) => {
-            e.preventDefault();
-            comments = [
-                ...comments,
-                    {
-                        author: e.target.elements.author.value,
-                        text: e.target.elements.text.value
+    constructor(props){
+        super(props);
+        this.comments = [];
+    }
+    
+    render(){    
+        return(    
+            <form className="commentForm" 
+                onSubmit={ (e) => {
+                    e.preventDefault();
+                    this.comments = [
+                        ...this.comments,
+                            {
+                                author: e.target.elements.author.value,
+                                text: e.target.elements.text.value
+                            }
+                        ]
                     }
-                ]
-            }
-        }
-    >
-        
-    
-        <input type="text"
-                name="author"
-                placeholder="Your Name:"
-        />
-        <input type="text"
-               name="text"
-               placeholder="Say something..."
-        />
-        <button>Post</button>
-    </form>
-)
+                }
+            >
+                <input type="text"
+                        name="author"
+                        placeholder="Your Name:"
+                />
+                <input type="text"
+                    name="text"
+                    placeholder="Say something..."
+                />
+                <button>Post</button>
+            </form>
+        )
+    }
+}
 
 export default CommentForm;

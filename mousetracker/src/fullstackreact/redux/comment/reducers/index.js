@@ -1,22 +1,24 @@
+import * as types from '../types';
+
 const initialState = {
     items: [],
     author: '',
     text: ''
 };
 
-export default commentsReducer = (state = initialState, action ) => {
+const commentsReducer = (state = initialState, action ) => {
     switch(action.type){
-        case ADD_COMMENT:
+        case types.ADD_COMMENT:
                 return {
                     ...state, 
                         items: [...state.items, { id : Math.random(), ...action.comment} ]
                 }
-        case AUTHOR_CHANGE:
+        case types.AUTHOR_CHANGE:
                 return{
                     ...state,
                     author: action.author
                 };
-        case TEXT_CHANGE:        
+        case types.TEXT_CHANGE:        
                 return{
                     ...state,
                     text: action.text
@@ -25,3 +27,5 @@ export default commentsReducer = (state = initialState, action ) => {
                 return state;
     }
 }
+
+export default commentsReducer;
