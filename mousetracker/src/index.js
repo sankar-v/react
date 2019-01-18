@@ -2,7 +2,7 @@
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { render1 } from './fullstackreact/redux/comment';
-import { render } from './/fullstackreact/redux/todo_mod';
-
+//import { render } from './/fullstackreact/redux/todo_mod';
+import { render } from  './/fullstackreact/redux/contacts';
 
 render();
