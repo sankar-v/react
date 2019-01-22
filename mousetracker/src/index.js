@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import TimerExample from "./fullstackreact/tutorialZine/Timer";
+import MenuExample from "./fullstackreact/tutorialZine/MenuExample";
 
 const Button = (props) => (
     <button >{props.label}</button>
@@ -27,9 +28,16 @@ class Button1 extends React.Component{
     }
 }
 
-
+/*
 ReactDOM.render(
     <TimerExample start={Date.now()}/>, document.getElementById('demo1')
+);
+*/
+
+// Render the menu component on the page, and pass an array with menu options
+ReactDOM.render(
+    <MenuExample items={ ['Home', 'Services', 'About', 'Contact us'] } />,
+    document.getElementById('demo1')
 );
 
 /*
