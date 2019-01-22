@@ -1,25 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import rootReducer from './fullstackreact/redux/contactsForm/reducers';
-import {createStore} from 'redux';
-import AddContact  from './fullstackreact/redux/contactsForm/containers/AddContactTest';
-import {toggleContactForm   } from "./fullstackreact/redux/contactsForm/actions";
-const store = createStore (rootReducer);
+
+import TimerExample from "./fullstackreact/tutorialZine/Timer";
+
+const Button = (props) => (
+    <button >{props.label}</button>
+)
+
+class Button1 extends React.Component{
+    constructor(props){
+        super (props);       
+    }
+
+    renderElements(){
+        alert(this.props.label);
+        return(
+            <div>
+                <button>{this.props.label}</button>
+                <button>{this.props.label}</button>
+                <button>{this.props.label}</button>
+            </div>
+        )
+    }
+    render(){
+        return this.renderElements();
+    }
+}
 
 
 ReactDOM.render(
-    <div>
-        <Provider store = {store}>
-        <AddContact/>
-        </Provider>
-    </div>, 
-document.getElementById('demo1'));
+    <TimerExample start={Date.now()}/>, document.getElementById('demo1')
+);
 
-console.log(store.getState());
-console.log(store.dispatch(toggleContactForm()));
-console.log(store.dispatch(toggleContactForm()));
-console.log(store.getState());
-console.log(store.dispatch({type:'HANDLE_INPUT_CHANGE', payload:{name: 'Beautiful', surname: 'world',
-email: 'greater@gmail.com',}}))
-console.log(store.getState());
+/*
+ReactDOM.render(
+    <Button1 label="How are you???"/>, document.getElementById('demo1')
+);
+*/
