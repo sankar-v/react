@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import TimerExample from "./fullstackreact/tutorialZine/Timer";
 import MenuExample from "./fullstackreact/tutorialZine/MenuExample";
+import { Search, libraries}  from "./fullstackreact/tutorialZine/Search";
 
 const Button = (props) => (
     <button >{props.label}</button>
@@ -35,9 +36,14 @@ ReactDOM.render(
 */
 
 // Render the menu component on the page, and pass an array with menu options
+/*
 ReactDOM.render(
     <MenuExample items={ ['Home', 'Services', 'About', 'Contact us'] } />,
     document.getElementById('demo1')
+);
+*/
+ReactDOM.render(
+    <Search items={ libraries } />, document.getElementById('demo1')
 );
 
 /*
