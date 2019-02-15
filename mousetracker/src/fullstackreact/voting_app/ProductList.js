@@ -4,17 +4,40 @@ import Seed from './seed';
 
 class ProductList extends React.Component {
 
+    state = {
+        products: [],
+    }
+    /*
     constructor(props){
         super(props);
         this.state = {
             products: [],
         };
     }
+    */
 
     componentDidMount(){
         this.setState({products: new Seed().products});
     }
 
+    handleProductUpVote = (productID) =>{
+        console.log(productID + 'was upvoted.');
+        alert(productID);
+        const nextProducts = this.state.products.map((product) => {
+            if (product.id === productID){
+                return Object.assign({}, product, {
+                    votes: product.votes + 1
+                })
+            }else{
+                return product;
+            }
+        });
+
+        this.setState({
+            products: nextProducts
+        });
+    } 
+    /*
     handleProductUpVote(productID) {
         console.log(productID + 'was upvoted.');
         alert(productID);
@@ -32,7 +55,7 @@ class ProductList extends React.Component {
             products: nextProducts
         });
     }
-
+    */
     render() {
         const products = this.state.products.sort((a,b) => (
             b.votes - a.votes
@@ -48,7 +71,7 @@ class ProductList extends React.Component {
                 votes={product.votes}
                 submitterAvatarUrl={product.submitterAvatarUrl}
                 productImageUrl={product.productImageUrl}
-                onVote={this.handleProductUpVote.bind(this)}
+                onVote={this.handleProductUpVote}
             />
         ));
 
