@@ -6,6 +6,7 @@ import MenuExample from "./fullstackreact/tutorialZine/MenuExample";
 import { Search, libraries}  from "./fullstackreact/tutorialZine/Search";
 import { ServiceChooser, Service, services} from './fullstackreact/tutorialZine/OrderForm';
 import  ProductList  from './fullstackreact/voting_app/ProductList';
+import TimerDashboard from './fullstackreact/time_tracking_app/TimerDashboard';
 
 const Button = (props) => (
     <button >{props.label}</button>
@@ -58,7 +59,13 @@ ReactDOM.render(
 
 // Render the ServiceChooser component, and pass the array of services
 //ReactDOM.render(<ServiceChooser items={ services } />, document.getElementById('demo1'));
+/*
 ReactDOM.render(
     <ProductList />,
     document.getElementById('demo1')
+);
+*/
+ReactDOM.render(
+    <TimerDashboard />,
+    document.getElementById('content')
 );
