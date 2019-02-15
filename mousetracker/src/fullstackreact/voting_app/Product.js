@@ -2,10 +2,17 @@ import React from 'react';
 
 class Product extends React.Component {
 
+  /*
   handleUpVote(){
     alert("inside handleUpVote product")
     this.props.onVote(this.props.id)
   }
+  */
+ handleUpVote = () => {
+  alert("inside handleUpVote product")
+  this.props.onVote(this.props.id);
+ }
+
 
   render() {
     return (
@@ -15,7 +22,7 @@ class Product extends React.Component {
         </div>
         <div className='middle aligned content'>
           <div className='header'>
-            <a onClick={this.handleUpVote.bind(this)}>
+            <a onClick={this.handleUpVote}>
               <i className='large caret up icon' />
             </a>
             {this.props.votes}
