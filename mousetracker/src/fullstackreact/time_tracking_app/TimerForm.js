@@ -16,8 +16,21 @@ class TimerForm extends React.Component{
         this.setState({project: project}); 
     }
 
+    handleSubmit =(event) => {
+        alert(event.target.value);
+        let obj = {
+            id: this.props.id, 
+            title:this.state.title, 
+            project:this.state.project};
+        this.props.onFormSubmit(obj);
+    }
+
+    handleCancel = () => {
+        this.props.onFormClose();
+    }
+
     render(){
-        const submitText = this.props.title ? 'Update' : 'Create';
+        const submitText = this.props.id ? 'Update' : 'Create';
         return(
             <div className='ui centered card'>
                 <div className='content'>
@@ -37,10 +50,15 @@ class TimerForm extends React.Component{
                                 onChange={this.handleProjectChange} />
                         </div>
                         <div className='ui two bottom attached buttons'>
-                            <button className = 'ui basic blue button'>
+                            <button 
+                                className = 'ui basic blue button'
+                                onClick={this.handleSubmit}
+                                value={submitText}>
                                 {submitText}
                             </button>
-                            <button className = 'ui basic red button'>
+                            <button 
+                                className = 'ui basic red button'
+                                onClick={this.handleCancel}>
                                 Cancel
                             </button>
                         </div>
