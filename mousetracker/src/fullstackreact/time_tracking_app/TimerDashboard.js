@@ -62,11 +62,51 @@ class TimerDashboard extends React.Component{
         this.deleteTimer(timerId);
     }
 
+    handleStartClick = (timerId) =>{
+        this.startTimer(timerId);
+    }
+
+    handleStopClick = (timerId) => {
+        this.stopTimer(timerId);
+    }
+
+
     deleteTimer = (timerId) =>{
         var newTimers = this.state.timers.filter(t=>t.id !==timerId);
         this.setState({timers: newTimers})
     }
 
+    startTimer = (timerId) => {
+
+        const now = Date.now();
+        var newTimers = this.state.timers.map((timer) => {
+            if (timer.id === timerId){
+                return Object.assign({}, timer, 
+                    {
+                        runningSince: now,
+                    });
+                }else{
+                    return timer;
+            }
+        });
+        this.setState({timers:newTimers});
+    }
+
+    stopTimer = (timerId) => {
+        const now = Date.now;
+        var newTimers = this.state.timers.map((timer=>{
+            if (timer.id === timerId){
+                const lastElapsed = now - timer.runningSince;
+                return Object.assign({}, timer, {
+                    elapsed: timer.elapsed  + lastElapsed,
+                    runningSince: null,
+                })
+            }else{
+                return timer;
+            }
+        }));
+        this.setState({timers: newTimers});
+    } 
     /*
     handleDelete = (attrs) => {
         var newTimers = this.state.timers.map((timer) =>{
@@ -86,7 +126,9 @@ class TimerDashboard extends React.Component{
                     <EditableTimerList 
                         timers = {this.state.timers}
                         onFormSubmit={this.handleEditFormSubmit}
-                        onTrashClick={this.handleTrashClick}/>
+                        onTrashClick={this.handleTrashClick}
+                        onStartClick={this.handleStartClick}
+                        onStopClick={this.handleStopClick}/>
 
                     <ToggleableTimerForm
                         isOpen={false}
