@@ -36,7 +36,8 @@ class Timer extends React.Component{
     render(){
         const elapsedString = new helpers().renderElapsedString(
             this.props.elapsed, this.props.runningSince);
-        return(
+            //alert(this.props.elapsed + ':' + this.props.runningSince);
+            return(
             <div className='ui centered card'>
                 <div className='content'>
                     <div className='header'>

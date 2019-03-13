@@ -93,10 +93,14 @@ class TimerDashboard extends React.Component{
     }
 
     stopTimer = (timerId) => {
-        const now = Date.now;
+        alert(timerId)
+        const now = Date.now();
         var newTimers = this.state.timers.map((timer=>{
             if (timer.id === timerId){
+                //alert("Now:" + Date.now());
                 const lastElapsed = now - timer.runningSince;
+                //alert("runningSince: " + timer.runningSince)
+                alert("lastElapsed: " + lastElapsed);
                 return Object.assign({}, timer, {
                     elapsed: timer.elapsed  + lastElapsed,
                     runningSince: null,
