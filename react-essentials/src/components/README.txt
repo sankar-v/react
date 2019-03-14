@@ -37,3 +37,13 @@ destroyStream()
 Disconnect from Snapkite Engine.
 
 SnapkiteStreamClient.destroyStream();
+
+git clone https://github.com/snapkite/snapkite-engine.git
+npm install -g node-gyp
+
+filters
+
+git clone https://github.com/snapkite/snapkite-filter-is-possibly-sensitive.git
+git clone https://github.com/snapkite/snapkite-filter-has-mobile-photo.git
+git clone https://github.com/snapkite/snapkite-filter-is-retweet.git
+git clone https://github.com/snapkite/snapkite-filter-has-text.git
