@@ -3,8 +3,21 @@ import EditableTimerList from './EditableTimerList';
 import ToggleableTimerForm from './ToggleableTimerForm';
 import helpers from './helpers';
 import uuid from 'uuid';
-
+/*
+import {
+    getTimers,
+    createTimer,
+    updateTimer,
+    deleteTimer,
+    startTimer,
+    stopTimer,
+    checkStatus,
+    parseJSON
+} from './client';
+*/
+const client = require('./client.js');
 class TimerDashboard extends React.Component{
+    /*
     state = {
         timers:[
             {
@@ -23,6 +36,21 @@ class TimerDashboard extends React.Component{
             },
         ],
     };
+    */
+    state = {
+        timers:[],
+    };
+
+    componentDidMount(){
+        this.loadTimersFromServer();
+        setInterval(this.loadTimersFromServer, 5000);
+    }
+
+    loadTimersFromServer = () =>{
+        client.getTimers((serverTimers) => (
+            this.setState({timers: serverTimers})
+        ));
+    }
 
     handleCreateFormSubmit = (timer) => { 
         this.createTimer(timer);
@@ -41,6 +69,7 @@ class TimerDashboard extends React.Component{
         this.setState({
             timers: this.state.timers.concat(t),
         })
+        client.createTimer(t);
     }
 
     updateTimer = (attrs) => {
@@ -56,6 +85,7 @@ class TimerDashboard extends React.Component{
                 }
             });
         this.setState({timers:newTimers});
+        client.updateTimer(attrs);
     }
 
     handleTrashClick = (timerId) => {
@@ -74,6 +104,7 @@ class TimerDashboard extends React.Component{
     deleteTimer = (timerId) =>{
         var newTimers = this.state.timers.filter(t=>t.id !==timerId);
         this.setState({timers: newTimers})
+        client.deleteTimer({id:timerId});
     }
 
     startTimer = (timerId) => {
@@ -90,6 +121,7 @@ class TimerDashboard extends React.Component{
             }
         });
         this.setState({timers:newTimers});
+        client.startTimer({id: timerId, start: now});
     }
 
     stopTimer = (timerId) => {
@@ -106,6 +138,7 @@ class TimerDashboard extends React.Component{
             }
         }));
         this.setState({timers: newTimers});
+        client.stopTimer({id: timerId, stop: now});
     } 
     /*
     handleDelete = (attrs) => {
