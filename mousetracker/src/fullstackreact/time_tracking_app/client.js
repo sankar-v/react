@@ -1,6 +1,6 @@
 var url = "http://localhost:3001/api/timers"
 
-function getTimers(success) {
+export function getTimers(success) {
   return fetch(url, {
     headers: {
       Accept: "application/json"
@@ -11,7 +11,7 @@ function getTimers(success) {
     .then(success);
 }
 
-function createTimer(data) {
+export function createTimer(data) {
   return fetch(url, {
     method: "post",
     body: JSON.stringify(data),
@@ -22,7 +22,7 @@ function createTimer(data) {
   }).then(checkStatus);
 }
 
-function updateTimer(data) {
+export function updateTimer(data) {
   return fetch(url, {
     method: "put",
     body: JSON.stringify(data),
@@ -33,7 +33,7 @@ function updateTimer(data) {
   }).then(checkStatus);
 }
 
-function deleteTimer(data) {
+export function deleteTimer(data) {
   return fetch(url, {
     method: "delete",
     body: JSON.stringify(data),
@@ -44,7 +44,7 @@ function deleteTimer(data) {
   }).then(checkStatus);
 }
 
-function startTimer(data) {
+export function startTimer(data) {
   return fetch(url + "/start", {
     method: "post",
     body: JSON.stringify(data),
@@ -55,7 +55,7 @@ function startTimer(data) {
   }).then(checkStatus);
 }
 
-function stopTimer(data) {
+export function stopTimer(data) {
   return fetch(url + "/stop", {
     method: "post",
     body: JSON.stringify(data),
@@ -66,7 +66,7 @@ function stopTimer(data) {
   }).then(checkStatus);
 }
 
-function checkStatus(response) {
+export function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   } else {
@@ -78,10 +78,11 @@ function checkStatus(response) {
   }
 }
 
-function parseJSON(response) {
+export function parseJSON(response) {
   return response.json();
 }
 
+/*
 module.exports = {
     getTimers:getTimers,
     createTimer:createTimer,
@@ -92,3 +93,4 @@ module.exports = {
     checkStatus: checkStatus,
     parseJSON: parseJSON
 }
+*/

@@ -15,7 +15,9 @@ import {
     parseJSON
 } from './client';
 */
-const client = require('./client.js');
+//const client = require('./client.js');
+import * as client from './client';
+
 class TimerDashboard extends React.Component{
     /*
     state = {
