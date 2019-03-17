@@ -1,4 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+
+const counterStyle = {
+    width: '50px',
+    textAlign: 'center',
+    backgroundColor: 'aliceblue',
+    padding: '10px'
+};
 
 class Counter extends React.Component{
     
@@ -37,7 +46,7 @@ class Counter extends React.Component{
     render(){
         let ctr = this.state.counter;
         return(
-            <div>
+            <div style={counterStyle} key="counter">
                 <button onClick = {this.handleIncrease}>
                     Increase
                 </button>
@@ -48,6 +57,10 @@ class Counter extends React.Component{
             </div>
         )
     }
+}
+
+Counter.propTypes = {
+    initialValue: PropTypes.number
 }
 
 export default Counter;
