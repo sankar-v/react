@@ -8,6 +8,7 @@ import { ServiceChooser, Service, services} from './fullstackreact/tutorialZine/
 import  ProductList  from './fullstackreact/voting_app/ProductList';
 import TimerDashboard from './fullstackreact/time_tracking_app/TimerDashboard';
 import Header from './fullstackreact/components/Header/Header';
+import Counter from './fullstackreact/components/Counter/Counter';
 
 const Button = (props) => (
     <button >{props.label}</button>
@@ -72,7 +73,13 @@ ReactDOM.render(
     document.getElementById('content')
 );
 */
+/*
 ReactDOM.render(
     <Header />,
+    document.getElementById('content')
+);
+*/
+ReactDOM.render(
+    <Counter />,
     document.getElementById('content')
 );
