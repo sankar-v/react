@@ -11,6 +11,8 @@ import Header from './fullstackreact/components/Header/Header';
 import Counter from './fullstackreact/components/Counter/Counter';
 import MapComponent from './fullstackreact/components/MapComponent/MapComponent';
 import Messages from './fullstackreact/components/Messages/Messages';
+//import Switch from './fullstackreact/components/Switch/Switch';
+import Switch from './fullstackreact/components/Switch/Switch5';
 
 const Button = (props) => (
     <button >{props.label}</button>
@@ -101,8 +103,16 @@ ReactDOM.render(
     document.getElementById('content')
 );
 */
+/*
 const data = require('..//src/fullstackreact/components/Messages/data.js')(10);
 ReactDOM.render(
     <Messages messages={data.messages} users={data.users} />,
     document.getElementById('content')
 );
+*/
+
+ReactDOM.render(
+    <Switch/>,
+    document.getElementById('content')
+);
+

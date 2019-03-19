@@ -6,7 +6,7 @@ import GoogleApi from './util/GoogleApi';
 import styles from './MapComponent.css';
 
 window._gapiInst = new GoogleApi({
-    apiKey: 'AIzaSyDMY0Cot7aNhjWEeFfc3wohSo2bL-yO9Xg',
+    apiKey: '',
     libraries: ['places']
 });
 
