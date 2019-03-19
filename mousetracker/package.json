@@ -29,6 +29,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "faker": "^4.1.0"
   }
 }

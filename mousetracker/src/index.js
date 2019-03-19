@@ -9,6 +9,8 @@ import  ProductList  from './fullstackreact/voting_app/ProductList';
 import TimerDashboard from './fullstackreact/time_tracking_app/TimerDashboard';
 import Header from './fullstackreact/components/Header/Header';
 import Counter from './fullstackreact/components/Counter/Counter';
+import MapComponent from './fullstackreact/components/MapComponent/MapComponent';
+import Messages from './fullstackreact/components/Messages/Messages';
 
 const Button = (props) => (
     <button >{props.label}</button>
@@ -79,7 +81,28 @@ ReactDOM.render(
     document.getElementById('content')
 );
 */
+/*
 ReactDOM.render(
-    <Counter />,
+    <Counter/>,
+    document.getElementById('content')
+);
+*/
+
+let markers = [
+    {lat: 37.773972, lng: -122.431297, title: 'San Francisco'}
+];
+/*
+<MapComponent markers={markers}
+      zoom={9} />
+*/
+/*TODO - Google Map integration with React is pending..
+ReactDOM.render(
+    <MapComponent markers = {markers} zoom={9}/>,
+    document.getElementById('content')
+);
+*/
+const data = require('..//src/fullstackreact/components/Messages/data.js')(10);
+ReactDOM.render(
+    <Messages messages={data.messages} users={data.users} />,
     document.getElementById('content')
 );
