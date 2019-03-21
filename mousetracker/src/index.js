@@ -13,6 +13,10 @@ import MapComponent from './fullstackreact/components/MapComponent/MapComponent'
 import Messages from './fullstackreact/components/Messages/Messages';
 //import Switch from './fullstackreact/components/Switch/Switch';
 import Switch from './fullstackreact/components/Switch/Switch5';
+import Container from './fullstackreact/components/Article/Container'
+import ArrayContainer from './fullstackreact/components/Article/ArrayContainer'
+import BasicForm from './fullstackreact/components/Forms/BasicForm'
+
 
 const Button = (props) => (
     <button >{props.label}</button>
@@ -110,9 +114,20 @@ ReactDOM.render(
     document.getElementById('content')
 );
 */
-
+/*
 ReactDOM.render(
     <Switch/>,
     document.getElementById('content')
 );
+*/
+const container1 = <Container><Switch/><h1></h1><h2><b></b></h2></Container>
+const arrayContainer = <ArrayContainer><p>Para</p><b>Bold</b><span>Span</span><h4>H4 element</h4><h1>Hello h1</h1><h2>Hello H2</h2><i>Italics</i>Hello how are you is a great wrorld</ArrayContainer>
+/*
+ReactDOM.render(arrayContainer, 
+    document.getElementById('content')
+);
+*/
 
+ReactDOM.render(<BasicForm/>, 
+    document.getElementById('content')
+);
