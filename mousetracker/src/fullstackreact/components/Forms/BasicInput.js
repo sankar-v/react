@@ -3,16 +3,22 @@ import React from "react";
 class BasicInput extends React.Component {
   
     state = {
+        name: '',
         names : [],
     };
 
     onFormSubmit =(e)=>{
-        alert(this.refs.name.value);
-        const name = this.refs.name.value;
-        const names = [...this.state.names, name];
-        e.preventDefault();
+        //alert(this.refs.name.value);
+        //const name = this.refs.name.value;
+        const names = [...this.state.names, this.state.name];
         this.setState({names:names});
+        e.preventDefault();
         //this.setState( prevState => { return { names: prevState.names.concat(name)}} )
+    }
+
+    onChange =(e) => {
+        const name = e.target.value;
+        this.setState({name:name});
     }
 
     renderNames(){
@@ -27,7 +33,9 @@ class BasicInput extends React.Component {
             <div>
                 <h1>Sign Up Sheet</h1>
                     <form onSubmit={this.onFormSubmit}>
-                        <input placeholder="Name" ref="name" />
+                        <input placeholder="Name" 
+                                value={this.state.name} 
+                                onChange={this.onChange}/>
                         <input type="submit" />                        
                     </form>
                     <div>
