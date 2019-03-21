@@ -11,6 +11,7 @@ class BasicInput extends React.Component {
         //alert(this.refs.name.value);
         //const name = this.refs.name.value;
         const names = [...this.state.names, this.state.name];
+        //const names = Object.assign({}, this.state.names, this.state.names.concat(this.state.name))
         this.setState({names:names});
         e.preventDefault();
         //this.setState( prevState => { return { names: prevState.names.concat(name)}} )
