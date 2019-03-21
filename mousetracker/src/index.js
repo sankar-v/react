@@ -16,6 +16,7 @@ import Switch from './fullstackreact/components/Switch/Switch5';
 import Container from './fullstackreact/components/Article/Container'
 import ArrayContainer from './fullstackreact/components/Article/ArrayContainer'
 import BasicForm from './fullstackreact/components/Forms/BasicForm'
+import BasicInput from './fullstackreact/components/Forms/BasicInput'
 
 
 const Button = (props) => (
@@ -127,7 +128,16 @@ ReactDOM.render(arrayContainer,
     document.getElementById('content')
 );
 */
-
+/*
 ReactDOM.render(<BasicForm/>, 
+    document.getElementById('content')
+);
+*/
+/*
+ReactDOM.render(<BasicInput/>, 
+    document.getElementById('content')
+);
+*/
+ReactDOM.render(<BasicInput/>, 
     document.getElementById('content')
 );
