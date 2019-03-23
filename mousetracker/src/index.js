@@ -18,6 +18,7 @@ import ArrayContainer from './fullstackreact/components/Article/ArrayContainer'
 import BasicForm from './fullstackreact/components/Forms/BasicForm'
 import BasicInput from './fullstackreact/components/Forms/BasicInput'
 import MultiFields from './fullstackreact/components/Forms/MultiFields'
+import BasicValidation from './fullstackreact/components/Forms/BasicValidation'
 
 const Button = (props) => (
     <button >{props.label}</button>
@@ -143,8 +144,14 @@ ReactDOM.render(<BasicInput/>,
     document.getElementById('content')
 );
 */
+/*
 ReactDOM.render(<MultiFields/>, 
     document.getElementById('content')
 );
+*/
+ReactDOM.render(<BasicValidation/>, 
+    document.getElementById('content')
+);
+
 
 
