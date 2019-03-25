@@ -89,7 +89,7 @@ class BasicValidation1 extends React.Component{
                                 onChange={this.onChange} 
                                 validate={(val)=> val ? false : 'Name required'}/>
                         <br/>
-                        <input  placeholder="Email" 
+                        <Field  placeholder="Email" 
                                 name="email"
                                 value={this.state.fields.email} 
                                 onChange={this.onChange}
