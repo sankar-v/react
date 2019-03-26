@@ -20,6 +20,7 @@ import BasicInput from './fullstackreact/components/Forms/BasicInput'
 import MultiFields from './fullstackreact/components/Forms/MultiFields'
 import BasicValidation from './fullstackreact/components/Forms/BasicValidation'
 import BasicValidation1 from './fullstackreact/components/Forms/BasicValidation1'
+import BasicValidation2 from './fullstackreact/components/Forms/BasicValidation2'
 
 const Button = (props) => (
     <button >{props.label}</button>
@@ -155,8 +156,12 @@ ReactDOM.render(<BasicValidation/>,
     document.getElementById('content')
 );
 */
+/*
 ReactDOM.render(<BasicValidation1/>, 
     document.getElementById('content')
 );
-
+*/
+ReactDOM.render(<BasicValidation2/>, 
+    document.getElementById('content')
+);
 
