@@ -62,8 +62,8 @@ class BasicValidation1 extends React.Component{
     }
 
     renderPeople(){
-        return this.state.people.map(({name,email}, idx) =>{
-                return (<li key={idx}>{name} ({email})</li>)
+        return this.state.people.map(({name,email, department, course}, idx) =>{
+                return (<li key={idx}>{[name, email, department, course].join(' - ')}</li>)
             }
         );
     }
