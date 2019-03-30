@@ -19,11 +19,10 @@ class EditItem extends Component{
         };
     }
 
-    handleInputChangeEvent = (event) => {
+    handleInputChange = (event) => {
         const target = event.target;
         const value = target.value;
         const name = target.name;
-
         this.setState({
             [name]: value
         });
@@ -33,7 +32,7 @@ class EditItem extends Component{
         this.props.onCancel();
     }
 
-    onSubmit(){
+    onSubmit =()=>{
         if (this.validator.validateInputs(this.state)){
             this.props.onSubmit(this.state);
         }
@@ -41,11 +40,12 @@ class EditItem extends Component{
 
     render(){
         return(
+            <form>
             <div className="input-panel">
             <span className="form-caption">Edit item:</span> <span>{this.state.name}</span>
                 <div>
                 <label className="field-name">Name:<br/>
-                    <input 
+                    <input type="text"
                         value={this.state.name} 
                         name="name" 
                         maxLength="40" 
@@ -98,9 +98,10 @@ class EditItem extends Component{
                     </label>
                 </div>
                 <br/>
-                <button onClick={() => this.onCancel()}>Cancel</button> 
-                <button onClick={() => this.onSubmit()}>Update</button>
+                <button onClick={this.onCancel}>Cancel</button> 
+                <button onClick={this.onSubmit}>Update</button>
             </div>
+            </form>
         )
     }
 }

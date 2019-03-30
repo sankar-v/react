@@ -7,17 +7,18 @@ class ItemDetails extends React.Component {
   }
 
   componentDidMount(){
-      alert('Item Details :: ComponentDidMount');
+      //alert('Item Details :: ComponentDidMount');
   }
 
-  onEdit = () => {
-    this.props.onEdit();
+  onEditItem = () => {
+    alert("inside onEditItem")
+    this.props.onEditItem(this.props.item);
   };
 
-  onDelete = () => {
+  onDeleteItem = () => {
     const item = this.props.item;
     if (window.confirm("Are you sure to delete item: " + item.name + " ?")) {
-      this.props.onDelete(item.link);
+      this.props.onDeleteItem(item.link);
     }
   };
 
@@ -48,8 +49,8 @@ class ItemDetails extends React.Component {
           <br /> {item.description}
         </div>
         <br />
-        <button onClick={() => this.onDelete()}>Delete</button>
-        <button onClick={() => this.onEdit()}>Edit</button>
+        <button onClick={this.onDeleteItem}>Delete</button>
+        <button onClick={this.onEditItem}>Edit</button>
       </div>
       </form>
     );

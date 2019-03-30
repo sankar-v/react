@@ -58,14 +58,30 @@ class ItemService {
     }
   }
 
-  async deleteItem(itemId) {
+  async deleteItem(itemLink) {
     console.log("item Service.deleteitem()");
-    console.log("item ID:" + itemId);
+    console.log("item ID:" + itemLink);
+    for (var i = 0; i < this.items.length; i++) {
+      if (this.items[i].link === itemLink) {
+        delete this.items[i];
+        return Promise.resolve(1);
+      }
+    }
   }
 
   async updateItem(item) {
     console.log("ItemService.updateItem():");
     console.log(item);
+    for (var i = 0; i < this.items.length; i++) {
+      if (this.items[i].link === item.link) {
+        this.items[i].name = item.name;
+        this.items[i].summary = item.summary;
+        this.items[i].year = item.year;
+        this.items[i].country = item.country;
+        this.items[i].description = item.description;
+        return Promise.resolve(this.items[i]);
+      }
+    }
   }
 }
 

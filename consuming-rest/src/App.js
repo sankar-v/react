@@ -26,12 +26,13 @@ class App extends Component{
     getItems = () => {
         this.itemService.getItems()
                         .then(items =>  {                    
-                                alert(JSON.stringify(items))      
-                                this.setState({items:items})});
+                                //alert(JSON.stringify(items))      
+                                this.setState({items:items})
+                        });
     }
 
     onSelect =(itemLink) =>{
-        alert("inside onSelect ItemLink::" + JSON.stringify(itemLink));
+        //alert("inside onSelect ItemLink::" + JSON.stringify(itemLink));
         this.clearState();
         this.itemService.getItem(itemLink)
             .then(item => this.setState({
@@ -51,12 +52,20 @@ class App extends Component{
         });
     }
 
-    onEditItem =() => {
+    onEditItem =(item) => {
+        alert("App: onEditItem");
         this.setState({
             showDetails: false,
+            selectedItem: item,
             editItem: true,
             newItem: null,
         })
+    }
+
+    onDeleteItem = (itemLink) => {
+        this.clearState();
+        this.itemService.deleteItem(itemLink)
+            .then(item => { this.getItems()});
     }
 
     onCancelEdit = () => {
@@ -68,13 +77,14 @@ class App extends Component{
     }
 
     onUpdateItem = (item) => {
+        alert('App onUpdateItem')
         this.clearState();
         this.itemService.updateItem(item)
             .then(item => { this.getItems()});
     }
 
     onCreateNewItem =(newItem) =>{
-        alert('inside App.js onCreateItem' + JSON.stringify(newItem));
+        //alert('inside App.js onCreateItem' + JSON.stringify(newItem));
         this.clearState();
         this.itemService.createItem(newItem)
             .then(item => { this.getItems()});
@@ -105,7 +115,7 @@ class App extends Component{
         const { 
                 showDetails, 
                 editItem, 
-                selectedItem, 
+                selectedItem,
                 newItem 
         } = this.state;
 
@@ -135,8 +145,8 @@ class App extends Component{
                     selectedItem && 
                     <ItemDetails 
                         item={selectedItem} 
-                        onEdit={this.onEditItem}  
-                        onDelete={this.onDeleteItem} 
+                        onEditItem={this.onEditItem}  
+                        onDeleteItem={this.onDeleteItem} 
                     />
                 }
                 {editItem && 
